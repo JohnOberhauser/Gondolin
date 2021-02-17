@@ -1,0 +1,2 @@
+com/ober/gondolin/shared/BuildConfig.java
+ com.ober.gondolin.shared.BuildConfig
