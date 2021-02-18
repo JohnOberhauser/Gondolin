@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="edit-desktop">
+    <output-path>$PROJECT_DIR$/common/edit/build/libs</output-path>
+    <root id="archive" name="edit-desktop.jar">
+      <element id="module-output" name="Gondolin.common.edit.desktopMain" />
+    </root>
+  </artifact>
+</component>

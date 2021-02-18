@@ -2,14 +2,62 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="Gondolin.desktopApp.commonMain" target="1.8" />
-      <module name="Gondolin.desktopApp.commonTest" target="1.8" />
-      <module name="Gondolin.desktopApp.jvmMain" target="1.8" />
-      <module name="Gondolin.desktopApp.jvmTest" target="1.8" />
-      <module name="workspace.Gondolin.shared.commonMain" target="1.8" />
-      <module name="workspace.Gondolin.shared.commonTest" target="1.8" />
-      <module name="workspace.Gondolin.shared.desktopMain" target="1.8" />
-      <module name="workspace.Gondolin.shared.desktopTest" target="1.8" />
+      <module name="Gondolin.common.compose-ui.commonMain" target="1.8" />
+      <module name="Gondolin.common.compose-ui.commonTest" target="1.8" />
+      <module name="Gondolin.common.compose-ui.desktopMain" target="1.8" />
+      <module name="Gondolin.common.compose-ui.desktopTest" target="1.8" />
+      <module name="Gondolin.common.database.commonMain" target="1.8" />
+      <module name="Gondolin.common.database.commonTest" target="1.8" />
+      <module name="Gondolin.common.database.desktopMain" target="1.8" />
+      <module name="Gondolin.common.database.desktopTest" target="1.8" />
+      <module name="Gondolin.common.edit.commonMain" target="1.8" />
+      <module name="Gondolin.common.edit.commonTest" target="1.8" />
+      <module name="Gondolin.common.edit.desktopMain" target="1.8" />
+      <module name="Gondolin.common.edit.desktopTest" target="1.8" />
+      <module name="Gondolin.common.main.commonMain" target="1.8" />
+      <module name="Gondolin.common.main.commonTest" target="1.8" />
+      <module name="Gondolin.common.main.desktopMain" target="1.8" />
+      <module name="Gondolin.common.main.desktopTest" target="1.8" />
+      <module name="Gondolin.common.root.commonMain" target="1.8" />
+      <module name="Gondolin.common.root.commonTest" target="1.8" />
+      <module name="Gondolin.common.root.desktopMain" target="1.8" />
+      <module name="Gondolin.common.root.desktopTest" target="1.8" />
+      <module name="Gondolin.common.utils.commonMain" target="1.8" />
+      <module name="Gondolin.common.utils.commonTest" target="1.8" />
+      <module name="Gondolin.common.utils.desktopMain" target="1.8" />
+      <module name="Gondolin.common.utils.desktopTest" target="1.8" />
+      <module name="Gondolin.desktop.commonMain" target="1.8" />
+      <module name="Gondolin.desktop.commonTest" target="1.8" />
+      <module name="Gondolin.desktop.jvmMain" target="1.8" />
+      <module name="Gondolin.desktop.jvmTest" target="1.8" />
+      <module name="todoapp.common.compose-ui.commonMain" target="1.8" />
+      <module name="todoapp.common.compose-ui.commonTest" target="1.8" />
+      <module name="todoapp.common.compose-ui.desktopMain" target="1.8" />
+      <module name="todoapp.common.compose-ui.desktopTest" target="1.8" />
+      <module name="todoapp.common.database.commonMain" target="1.8" />
+      <module name="todoapp.common.database.commonTest" target="1.8" />
+      <module name="todoapp.common.database.desktopMain" target="1.8" />
+      <module name="todoapp.common.database.desktopTest" target="1.8" />
+      <module name="todoapp.common.edit.commonMain" target="1.8" />
+      <module name="todoapp.common.edit.commonTest" target="1.8" />
+      <module name="todoapp.common.edit.desktopMain" target="1.8" />
+      <module name="todoapp.common.edit.desktopTest" target="1.8" />
+      <module name="todoapp.common.main.commonMain" target="1.8" />
+      <module name="todoapp.common.main.commonTest" target="1.8" />
+      <module name="todoapp.common.main.desktopMain" target="1.8" />
+      <module name="todoapp.common.main.desktopTest" target="1.8" />
+      <module name="todoapp.common.root.commonMain" target="1.8" />
+      <module name="todoapp.common.root.commonTest" target="1.8" />
+      <module name="todoapp.common.root.desktopMain" target="1.8" />
+      <module name="todoapp.common.root.desktopTest" target="1.8" />
+      <module name="todoapp.common.utils.commonMain" target="1.8" />
+      <module name="todoapp.common.utils.commonTest" target="1.8" />
+      <module name="todoapp.common.utils.desktopMain" target="1.8" />
+      <module name="todoapp.common.utils.desktopTest" target="1.8" />
+      <module name="todoapp.desktop.commonMain" target="1.8" />
+      <module name="todoapp.desktop.commonTest" target="1.8" />
+      <module name="todoapp.desktop.jvmMain" target="1.8" />
+      <module name="todoapp.desktop.jvmTest" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

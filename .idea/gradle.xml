@@ -11,21 +11,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/androidApp" />
-            <option value="$PROJECT_DIR$/desktopApp" />
-            <option value="$PROJECT_DIR$/shared" />
-          </set>
-        </option>
-        <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="testRunner" value="PLATFORM" />
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/desktopApp" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/desktopApp" />
+            <option value="$PROJECT_DIR$/android" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/compose-ui" />
+            <option value="$PROJECT_DIR$/common/database" />
+            <option value="$PROJECT_DIR$/common/edit" />
+            <option value="$PROJECT_DIR$/common/main" />
+            <option value="$PROJECT_DIR$/common/root" />
+            <option value="$PROJECT_DIR$/common/utils" />
+            <option value="$PROJECT_DIR$/desktop" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
