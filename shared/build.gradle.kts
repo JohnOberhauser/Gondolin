@@ -1,12 +1,15 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("org.jetbrains.compose")
 }
 
 kotlin {
     android()
+    jvm("desktop")
     ios {
         binaries {
             framework {
@@ -37,6 +40,7 @@ kotlin {
                 implementation("junit:junit:4.13.1")
             }
         }
+        val desktopMain by getting
         val iosMain by getting
         val iosTest by getting
     }

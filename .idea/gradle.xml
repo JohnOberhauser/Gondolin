@@ -10,9 +10,22 @@
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
-            <option value="/ssd/home/workspace/Gondolin" />
-            <option value="/ssd/home/workspace/Gondolin/androidApp" />
-            <option value="/ssd/home/workspace/Gondolin/shared" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/androidApp" />
+            <option value="$PROJECT_DIR$/desktopApp" />
+            <option value="$PROJECT_DIR$/shared" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/desktopApp" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/desktopApp" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

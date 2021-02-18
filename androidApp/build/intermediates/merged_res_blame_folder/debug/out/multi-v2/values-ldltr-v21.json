@@ -4,7 +4,7 @@
             "outputFile": "/ssd/home/workspace/Gondolin/androidApp/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/home/john/.gradle/caches/transforms-2/files-2.1/d0dbf1f2fba45ebb34a5351fe63455c0/appcompat-1.2.0/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "/home/john/.gradle/caches/transforms-2/files-2.1/80f24d7c8d3e495fe9e6c13fd7bb14de/appcompat-1.3.0-alpha01/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -12,4 +12,4 @@ rootProject.name = "Gondolin"
 
 include(":androidApp")
 include(":shared")
-
+include(":desktopApp")

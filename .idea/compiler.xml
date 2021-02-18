@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="Gondolin.desktopApp.commonMain" target="1.8" />
+      <module name="Gondolin.desktopApp.commonTest" target="1.8" />
+      <module name="Gondolin.desktopApp.jvmMain" target="1.8" />
+      <module name="Gondolin.desktopApp.jvmTest" target="1.8" />
+      <module name="workspace.Gondolin.shared.commonMain" target="1.8" />
+      <module name="workspace.Gondolin.shared.commonTest" target="1.8" />
+      <module name="workspace.Gondolin.shared.desktopMain" target="1.8" />
+      <module name="workspace.Gondolin.shared.desktopTest" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
