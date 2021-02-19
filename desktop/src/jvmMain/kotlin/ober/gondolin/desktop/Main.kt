@@ -25,7 +25,7 @@ fun main() {
     val lifecycle = LifecycleRegistry()
     lifecycle.resume()
 
-    Window("Todo") {
+    Window("Gondolin") {
         Surface(modifier = Modifier.fillMaxSize()) {
             MaterialTheme {
                 DesktopTheme {
