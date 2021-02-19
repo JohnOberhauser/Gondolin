@@ -7,6 +7,7 @@ kotlin {
     sourceSets {
         named("commonMain") {
             dependencies {
+                implementation(project(":common:viewmodel"))
                 implementation(project(":common:main"))
                 implementation(project(":common:edit"))
                 implementation(project(":common:root"))

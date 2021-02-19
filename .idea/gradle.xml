@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/common/main" />
             <option value="$PROJECT_DIR$/common/root" />
             <option value="$PROJECT_DIR$/common/utils" />
+            <option value="$PROJECT_DIR$/common/viewmodel" />
             <option value="$PROJECT_DIR$/desktop" />
           </set>
         </option>

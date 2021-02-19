@@ -27,7 +27,7 @@
 17        android:allowBackup="true"
 17-->/ssd/home/workspace/Gondolin/android/src/main/AndroidManifest.xml:10:9-35
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-18-->[androidx.core:core:1.5.0-beta01] /home/john/.gradle/caches/transforms-2/files-2.1/4cf81e756d9f45c12a4fc473cdfff0db/core-1.5.0-beta01/AndroidManifest.xml:24:18-86
+18-->[androidx.core:core:1.5.0-beta01] /home/john/.gradle/caches/transforms-2/files-2.1/ff547e3e24bf9f90eba6084f4f57719c/core-1.5.0-beta01/AndroidManifest.xml:24:18-86
 19        android:debuggable="true"
 20        android:extractNativeLibs="false"
 21        android:icon="@mipmap/ic_launcher"

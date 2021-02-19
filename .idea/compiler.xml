@@ -26,6 +26,10 @@
       <module name="Gondolin.common.utils.commonTest" target="1.8" />
       <module name="Gondolin.common.utils.desktopMain" target="1.8" />
       <module name="Gondolin.common.utils.desktopTest" target="1.8" />
+      <module name="Gondolin.common.viewmodel.commonMain" target="1.8" />
+      <module name="Gondolin.common.viewmodel.commonTest" target="1.8" />
+      <module name="Gondolin.common.viewmodel.desktopMain" target="1.8" />
+      <module name="Gondolin.common.viewmodel.desktopTest" target="1.8" />
       <module name="Gondolin.desktop.commonMain" target="1.8" />
       <module name="Gondolin.desktop.commonTest" target="1.8" />
       <module name="Gondolin.desktop.jvmMain" target="1.8" />

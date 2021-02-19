@@ -1,0 +1,5 @@
+package ober.gondolin.common.viewmodel
+
+class BaseViewModel {
+
+}

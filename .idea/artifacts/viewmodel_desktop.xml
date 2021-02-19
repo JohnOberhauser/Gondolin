@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="viewmodel-desktop">
+    <output-path>$PROJECT_DIR$/common/viewmodel/build/libs</output-path>
+    <root id="archive" name="viewmodel-desktop.jar">
+      <element id="module-output" name="Gondolin.common.viewmodel.desktopMain" />
+    </root>
+  </artifact>
+</component>
