@@ -18,6 +18,7 @@ local.properties
 /common/database/build
 /common/edit/build/
 /common/main/build
+/common/root/build
 /common/utils/build
 /common/viewmodel/build
 /desktop/build

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import ober.gondolin.common.ui.theme.ComposeAppTheme
-import ober.gondolin.common.ui.screens.start.NewUserScreen
+import ober.gondolin.common.ui.screens.start.SplashScreen
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             ComposeAppTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    NewUserScreen()
+                    SplashScreen()
                 }
             }
         }
