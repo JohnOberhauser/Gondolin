@@ -21,3 +21,4 @@ local.properties
 /common/utils/build
 /common/viewmodel/build
 /desktop/build
+/buildSrc/build
