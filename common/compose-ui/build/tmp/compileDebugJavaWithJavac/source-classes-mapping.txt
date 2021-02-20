@@ -1,2 +1,0 @@
-ober/gondolin/common/ui/BuildConfig.java
- ober.gondolin.common.ui.BuildConfig

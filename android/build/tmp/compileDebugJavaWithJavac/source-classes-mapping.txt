@@ -1,2 +1,0 @@
-ober/gondolin/android/BuildConfig.java
- ober.gondolin.android.BuildConfig

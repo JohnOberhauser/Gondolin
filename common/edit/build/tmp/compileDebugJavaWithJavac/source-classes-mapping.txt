@@ -1,2 +1,0 @@
-ober/gondolin/common/edit/BuildConfig.java
- ober.gondolin.common.edit.BuildConfig

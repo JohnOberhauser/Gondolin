@@ -13,5 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
-/shared/build
-/androidApp/build
+/android/build
+/common/compose-ui/build
+/common/database/build
+/common/edit/build/
+/common/main/build
+/common/utils/build
+/common/viewmodel/build
+/desktop/build
