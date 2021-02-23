@@ -85,4 +85,9 @@ object Deps {
     object RusshWolf {
         const val settings = "com.russhwolf:multiplatform-settings:0.7.3"
     }
+
+    object SqlCipher {
+        const val sqlCipher = "net.zetetic:android-database-sqlcipher:4.4.2"
+        const val sqlCipherJvm = "io.github.willena:sqlite-jdbc:3.33.0.1"
+    }
 }

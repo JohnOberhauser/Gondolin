@@ -17,12 +17,14 @@ kotlin {
             dependencies {
                 implementation(Deps.Squareup.SQLDelight.androidDriver)
                 implementation(Deps.Squareup.SQLDelight.sqliteDriver)
+                implementation(Deps.SqlCipher.sqlCipher)
             }
         }
 
         desktopMain {
             dependencies {
                 implementation(Deps.Squareup.SQLDelight.sqliteDriver)
+                implementation(Deps.SqlCipher.sqlCipherJvm)
             }
         }
 
