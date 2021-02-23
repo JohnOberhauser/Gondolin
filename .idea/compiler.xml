@@ -18,6 +18,10 @@
       <module name="Gondolin.common.main.commonTest" target="1.8" />
       <module name="Gondolin.common.main.desktopMain" target="1.8" />
       <module name="Gondolin.common.main.desktopTest" target="1.8" />
+      <module name="Gondolin.common.navigation.commonMain" target="1.8" />
+      <module name="Gondolin.common.navigation.commonTest" target="1.8" />
+      <module name="Gondolin.common.navigation.desktopMain" target="1.8" />
+      <module name="Gondolin.common.navigation.desktopTest" target="1.8" />
       <module name="Gondolin.common.root.commonMain" target="1.8" />
       <module name="Gondolin.common.root.commonTest" target="1.8" />
       <module name="Gondolin.common.root.desktopMain" target="1.8" />

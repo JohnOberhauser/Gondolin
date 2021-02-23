@@ -4,7 +4,6 @@ import com.badoo.reaktive.completable.Completable
 import com.badoo.reaktive.completable.completableFromFunction
 import com.badoo.reaktive.observable.Observable
 import com.badoo.reaktive.subject.behavior.BehaviorSubject
-import ober.gondolin.common.main.TodoItem
 
 internal class TestTodoMainStoreDatabase : TodoMainStoreProvider.Database {
 

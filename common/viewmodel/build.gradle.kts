@@ -10,15 +10,7 @@ kotlin {
         named("commonMain") {
             dependencies {
                 implementation(project(":common:utils"))
-                implementation(Deps.Badoo.Reaktive.reaktive)
-            }
-        }
-
-        named("commonTest") {
-            dependencies {
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlinMain)
-                implementation(Deps.Badoo.Reaktive.reaktiveTesting)
-                implementation(Deps.Badoo.Reaktive.utils)
+                implementation(Deps.JetBrains.Kotlin.coroutines)
             }
         }
     }

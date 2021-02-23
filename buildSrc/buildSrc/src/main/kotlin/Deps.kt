@@ -8,6 +8,7 @@ object Deps {
             const val testCommon = "org.jetbrains.kotlin:kotlin-test-common:$VERSION"
             const val testJunit = "org.jetbrains.kotlin:kotlin-test-junit:$VERSION"
             const val testAnnotationsCommon = "org.jetbrains.kotlin:kotlin-test-annotations-common:$VERSION"
+            const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
         }
 
         object Compose {
@@ -75,5 +76,13 @@ object Deps {
             const val sqliteDriver = "com.squareup.sqldelight:sqlite-driver:$VERSION"
             const val nativeDriver = "com.squareup.sqldelight:native-driver:$VERSION"
         }
+    }
+
+    object KorLibs {
+        const val krypto = "com.soywiz.korlibs.krypto:krypto:2.0.6"
+    }
+
+    object RusshWolf {
+        const val settings = "com.russhwolf:multiplatform-settings:0.7.3"
     }
 }

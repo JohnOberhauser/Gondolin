@@ -17,7 +17,7 @@ kotlin {
                 implementation(compose.desktop.currentOs)
                 implementation(project(":common:utils"))
                 implementation(project(":common:database"))
-                implementation(project(":common:root"))
+                implementation(project(":common:navigation"))
                 implementation(project(":common:compose-ui"))
                 implementation(Deps.ArkIvanov.Decompose.decompose)
                 implementation(Deps.ArkIvanov.Decompose.extensionsCompose)

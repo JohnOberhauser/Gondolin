@@ -29,7 +29,7 @@ android {
 dependencies {
     implementation(project(":common:database"))
     implementation(project(":common:utils"))
-    implementation(project(":common:root"))
+    implementation(project(":common:navigation"))
     implementation(project(":common:compose-ui"))
     implementation(compose.material)
     implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)

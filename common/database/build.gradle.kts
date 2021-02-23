@@ -5,18 +5,13 @@ plugins {
 }
 
 sqldelight {
-    database("TodoDatabase") {
-        packageName = "ober.gondolin.database"
+    database("CredentialsDatabase") {
+        packageName = "ober.gondolin.common.database"
     }
 }
 
 kotlin {
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(Deps.Badoo.Reaktive.reaktive)
-            }
-        }
 
         androidMain {
             dependencies {

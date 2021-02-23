@@ -10,7 +10,7 @@ kotlin {
                 implementation(project(":common:viewmodel"))
                 implementation(project(":common:main"))
                 implementation(project(":common:edit"))
-                implementation(project(":common:root"))
+                implementation(project(":common:navigation"))
                 implementation(Deps.ArkIvanov.Decompose.decompose)
                 implementation(Deps.ArkIvanov.Decompose.extensionsCompose)
             }

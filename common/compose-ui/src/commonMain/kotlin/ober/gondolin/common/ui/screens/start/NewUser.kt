@@ -5,21 +5,27 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import ober.gondolin.common.ui.common.textfield.CyberTextField
 import ober.gondolin.common.ui.textStyle.TextStyles
+import ober.gondolin.common.viewmodel.start.NewUserViewModel
 
 @Composable
 fun NewUserScreen() {
+    val viewModel = NewUserViewModel()
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
-        EncryptionTextField()
-        GenerateButton()
+        EncryptionTextField(viewModel)
+        GenerateButton(viewModel)
         Spacer(modifier = Modifier.padding(16.dp))
         PinTextField()
         DoneButton()
@@ -29,8 +35,15 @@ fun NewUserScreen() {
 }
 
 @Composable
-private fun EncryptionTextField() {
+private fun EncryptionTextField(viewModel: NewUserViewModel) {
     val textValue = remember { mutableStateOf(TextFieldValue()) }
+
+    rememberCoroutineScope().launch {
+        viewModel.encryptionKey.collect {
+            textValue.value = TextFieldValue(it)
+        }
+    }
+
 
     CyberTextField(
         modifier = Modifier
@@ -51,7 +64,7 @@ private fun EncryptionTextField() {
 }
 
 @Composable
-private fun GenerateButton() {
+private fun GenerateButton(viewModel: NewUserViewModel) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
@@ -59,7 +72,9 @@ private fun GenerateButton() {
                 start = 16.dp,
                 end = 16.dp
             ),
-        onClick = {},
+        onClick = {
+            viewModel.onGenerateClicked()
+        },
         content = {
             Text(
                 text = "GENERATE",

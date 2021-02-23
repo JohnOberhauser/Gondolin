@@ -12,7 +12,6 @@ import com.badoo.reaktive.test.observable.test
 import com.badoo.reaktive.test.scheduler.TestScheduler
 import ober.gondolin.common.database.TestDatabaseDriver
 import ober.gondolin.common.database.TodoItemEntity
-import ober.gondolin.common.main.TodoItem
 import ober.gondolin.common.main.TodoMain.Dependencies
 import ober.gondolin.common.main.TodoMain.Model
 import ober.gondolin.common.main.TodoMain.Output

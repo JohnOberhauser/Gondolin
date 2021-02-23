@@ -10,6 +10,7 @@ import com.arkivanov.decompose.lifecycle.resume
 import com.badoo.reaktive.coroutinesinterop.asScheduler
 import com.badoo.reaktive.scheduler.overrideSchedulers
 import kotlinx.coroutines.Dispatchers
+import ober.gondolin.common.ui.screens.Root
 import ober.gondolin.common.ui.screens.start.NewUserScreen
 import ober.gondolin.common.ui.theme.ComposeAppTheme
 
@@ -26,7 +27,7 @@ fun main() {
         Surface(modifier = Modifier.fillMaxSize()) {
             ComposeAppTheme {
                 DesktopTheme {
-                    NewUserScreen()
+                    Root()
                 }
             }
         }

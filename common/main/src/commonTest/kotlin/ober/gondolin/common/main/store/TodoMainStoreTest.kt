@@ -3,7 +3,6 @@ package ober.gondolin.common.main.store
 import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import com.badoo.reaktive.scheduler.overrideSchedulers
 import com.badoo.reaktive.test.scheduler.TestScheduler
-import ober.gondolin.common.main.TodoItem
 import ober.gondolin.common.main.store.TodoMainStore.Intent
 import kotlin.test.BeforeTest
 import kotlin.test.Test

@@ -3,7 +3,7 @@ include(
     ":common:database",
     ":common:main",
     ":common:edit",
-    ":common:root",
+    ":common:navigation",
     ":common:compose-ui",
     ":common:viewmodel",
     ":android",
