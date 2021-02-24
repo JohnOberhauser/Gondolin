@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ober.gondolin.common.navigation.Navigator
 import ober.gondolin.common.navigation.Screen
+import ober.gondolin.common.ui.screens.main.Categories
 import ober.gondolin.common.ui.screens.start.NewUserScreen
 import ober.gondolin.common.ui.screens.start.SplashScreen
 
@@ -23,7 +24,8 @@ fun Root() {
 
     when (currentScreen.value) {
         is Screen.Splash -> SplashScreen()
-        is Screen.NewUser -> NewUserScreen()
+        is Screen.NewUser -> NewUserScreen().Create()
+        is Screen.Categories -> Categories()
     }
 
     rememberCoroutineScope().launch {

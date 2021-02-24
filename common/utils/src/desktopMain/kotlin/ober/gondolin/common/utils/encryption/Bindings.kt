@@ -5,6 +5,12 @@ import java.security.SecureRandom
 
 actual fun nextSecureInt(until: Int): Int = SecureRandom().nextInt(until)
 
+actual fun randomByteArray(length: Int): ByteArray {
+    val byteArray = ByteArray(length)
+    SecureRandom().nextBytes(byteArray)
+    return byteArray
+}
+
 actual fun encrypt(data: String): String {
     return EncryptionOptions.encryption?.encrypt(data) ?: throw EncryptionOptionsNotSetException()
 }

@@ -15,126 +15,134 @@ import ober.gondolin.common.ui.common.textfield.CyberTextField
 import ober.gondolin.common.ui.textStyle.TextStyles
 import ober.gondolin.common.viewmodel.start.NewUserViewModel
 
-@Composable
-fun NewUserScreen() {
-    val viewModel = NewUserViewModel()
+class NewUserScreen {
+    private lateinit var viewModel: NewUserViewModel
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
-    ) {
-        EncryptionTextField(viewModel)
-        GenerateButton(viewModel)
-        Spacer(modifier = Modifier.padding(16.dp))
-        PinTextField()
-        DoneButton()
-        Spacer(modifier = Modifier.padding(16.dp))
-        ExplainationText()
+    @Composable
+    fun Create() {
+        viewModel = NewUserViewModel(rememberCoroutineScope())
+
+        Content()
     }
-}
 
-@Composable
-private fun EncryptionTextField(viewModel: NewUserViewModel) {
-    val textValue = remember { mutableStateOf(TextFieldValue()) }
-
-    rememberCoroutineScope().launch {
-        viewModel.encryptionKey.collect {
-            textValue.value = TextFieldValue(it)
+    @Composable
+    private fun Content() {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight()
+        ) {
+            EncryptionTextField(viewModel)
+            GenerateButton(viewModel)
+            Spacer(modifier = Modifier.padding(16.dp))
+            PinTextField()
+            DoneButton()
+            Spacer(modifier = Modifier.padding(16.dp))
+            ExplainationText()
         }
     }
 
+    @Composable
+    private fun EncryptionTextField(viewModel: NewUserViewModel) {
+        val textValue = remember { mutableStateOf(TextFieldValue()) }
 
-    CyberTextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                all = 16.dp
-            ),
-        value = textValue.value,
-        onValueChange = { textValue.value = it },
-        label = {
-            Text(
-                text = "Encryption Key",
-                style = TextStyles.monospaceBold
-            )
-        },
-        textStyle = TextStyles.monospaceBold
-    )
-}
-
-@Composable
-private fun GenerateButton(viewModel: NewUserViewModel) {
-    Button(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                start = 16.dp,
-                end = 16.dp
-            ),
-        onClick = {
-            viewModel.onGenerateClicked()
-        },
-        content = {
-            Text(
-                text = "GENERATE",
-                style = TextStyles.monospaceBold
-            )
+        rememberCoroutineScope().launch {
+            viewModel.encryptionKey.collect {
+                textValue.value = TextFieldValue(it)
+            }
         }
-    )
-}
 
-@Composable
-private fun PinTextField() {
-    val textValue = remember { mutableStateOf(TextFieldValue()) }
+        CyberTextField(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    all = 16.dp
+                ),
+            value = textValue.value,
+            onValueChange = { textValue.value = it },
+            label = {
+                Text(
+                    text = "Encryption Key",
+                    style = TextStyles.monospaceBold
+                )
+            },
+            textStyle = TextStyles.monospaceBold
+        )
+    }
 
-    CyberTextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                all = 16.dp
-            ),
-        value = textValue.value,
-        onValueChange = { textValue.value = it },
-        label = {
-            Text(
-                text = "PIN",
-                style = TextStyles.monospaceBold
-            )
-        },
-        textStyle = TextStyles.monospaceBold
-    )
-}
+    @Composable
+    private fun GenerateButton(viewModel: NewUserViewModel) {
+        Button(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    start = 16.dp,
+                    end = 16.dp
+                ),
+            onClick = {
+                viewModel.onGenerateClicked()
+            },
+            content = {
+                Text(
+                    text = "GENERATE",
+                    style = TextStyles.monospaceBold
+                )
+            }
+        )
+    }
 
-@Composable
-private fun DoneButton() {
-    Button(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                start = 16.dp,
-                end = 16.dp
-            ),
-        onClick = {},
-        content = {
-            Text(
-                text = "DONE",
-                style = TextStyles.monospaceBold
-            )
-        },
-        enabled = false
-    )
-}
+    @Composable
+    private fun PinTextField() {
+        val textValue = remember { mutableStateOf(TextFieldValue()) }
 
-@Composable
-private fun ExplainationText() {
-    Text(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                all = 16.dp
-            ),
-        text = "The encryption key is required when decrypting backup files on a new device, or decrypting your files if you forgot your PIN.  " +
-                "You should write it down and keep it in a safe place"
-    )
+        CyberTextField(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    all = 16.dp
+                ),
+            value = textValue.value,
+            onValueChange = { textValue.value = it },
+            label = {
+                Text(
+                    text = "PIN",
+                    style = TextStyles.monospaceBold
+                )
+            },
+            textStyle = TextStyles.monospaceBold
+        )
+    }
+
+    @Composable
+    private fun DoneButton() {
+        Button(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    start = 16.dp,
+                    end = 16.dp
+                ),
+            onClick = {},
+            content = {
+                Text(
+                    text = "DONE",
+                    style = TextStyles.monospaceBold
+                )
+            },
+            enabled = false
+        )
+    }
+
+    @Composable
+    private fun ExplainationText() {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    all = 16.dp
+                ),
+            text = "The encryption key is required when decrypting backup files on a new device, or decrypting your files if you forgot your PIN.  " +
+                    "You should write it down and keep it in a safe place"
+        )
+    }
 }

@@ -11,6 +11,10 @@ kotlin {
             dependencies {
                 implementation(project(":common:utils"))
                 implementation(Deps.JetBrains.Kotlin.coroutines)
+                implementation(Deps.Injection.popkorn)
+                kapt {
+                    annotationProcessor(Deps.Injection.popkornCompiler)
+                }
             }
         }
     }

@@ -84,6 +84,7 @@ object Deps {
 
     object RusshWolf {
         const val settings = "com.russhwolf:multiplatform-settings:0.7.3"
+        const val settingsNoArg = "com.russhwolf:multiplatform-settings-no-arg:0.7.3"
     }
 
     object Encryption {

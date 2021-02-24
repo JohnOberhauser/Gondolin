@@ -9,6 +9,13 @@ actual fun nextSecureInt(until: Int): Int {
     return SecureRandom().nextInt(until)
 }
 
+actual fun randomByteArray(length: Int): ByteArray {
+    PRNGFixes.apply()
+    val byteArray = ByteArray(length)
+    SecureRandom().nextBytes(byteArray)
+    return byteArray
+}
+
 actual fun encrypt(data: String): String {
     return EncryptionOptions.encryption?.encrypt(data) ?: throw EncryptionOptionsNotSetException()
 }

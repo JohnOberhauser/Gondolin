@@ -2,6 +2,8 @@ package ober.gondolin.common.utils.encryption
 
 expect fun nextSecureInt(until: Int): Int
 
+expect fun randomByteArray(length: Int): ByteArray
+
 expect fun encrypt(data: String): String
 
 expect fun decrypt(data: String): String
@@ -9,7 +11,7 @@ expect fun decrypt(data: String): String
 expect fun setEncryptionOptions(
     key: String,
     salt: String,
-    iv: ByteArray,
+    iv: ByteArray = RandomGenerator.generateIV(),
     iterationCount: Int = 50_000,
     algorithm: String = "AES/GCM/PKCS5Padding",
     charset: String = "UTF8",
