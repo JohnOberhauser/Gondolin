@@ -2,6 +2,7 @@ package ober.gondolin.common.viewmodel.start
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
@@ -31,7 +32,7 @@ class NewUserViewModel(
             }
         }
     }
-    val doneButtonEnabled = _doneButtonEnabled
+    val doneButtonEnabled: StateFlow<Boolean> = _doneButtonEnabled
 
     fun onGenerateClicked() {
         encryptionKey.value = RandomGenerator.generateRandomKey(DEFAULT_KEY_LENGTH)
