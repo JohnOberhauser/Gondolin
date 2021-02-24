@@ -2,10 +2,7 @@ package ober.gondolin.common.ui.screens.start
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
@@ -44,13 +41,7 @@ class NewUserScreen {
 
     @Composable
     private fun EncryptionTextField(viewModel: NewUserViewModel) {
-        val textValue = remember { mutableStateOf(TextFieldValue()) }
-
-        rememberCoroutineScope().launch {
-            viewModel.encryptionKey.collect {
-                textValue.value = TextFieldValue(it)
-            }
-        }
+        val textValue = viewModel.encryptionKey.collectAsState()
 
         CyberTextField(
             modifier = Modifier
@@ -59,7 +50,7 @@ class NewUserScreen {
                     all = 16.dp
                 ),
             value = textValue.value,
-            onValueChange = { textValue.value = it },
+            onValueChange = { viewModel.encryptionKey.value = it },
             label = {
                 Text(
                     text = "Encryption Key",
@@ -93,7 +84,7 @@ class NewUserScreen {
 
     @Composable
     private fun PinTextField() {
-        val textValue = remember { mutableStateOf(TextFieldValue()) }
+        val textValue = viewModel.pin.collectAsState()
 
         CyberTextField(
             modifier = Modifier
@@ -102,10 +93,7 @@ class NewUserScreen {
                     all = 16.dp
                 ),
             value = textValue.value,
-            onValueChange = {
-                textValue.value = it
-                viewModel.pin.value = it.text
-            },
+            onValueChange = { viewModel.pin.value = it },
             label = {
                 Text(
                     text = "PIN",
@@ -118,13 +106,7 @@ class NewUserScreen {
 
     @Composable
     private fun DoneButton() {
-        val enabled = remember { mutableStateOf(false) }
-
-        rememberCoroutineScope().launch {
-            viewModel.doneButtonEnabled.collect {
-                enabled.value = it
-            }
-        }
+        val enabled = viewModel.doneButtonEnabled.collectAsState()
 
         Button(
             modifier = Modifier

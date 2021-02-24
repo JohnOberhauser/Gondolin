@@ -14,8 +14,8 @@ class RushSimpleStorage: SimpleStorage {
 
     override fun saveEncryptionKey(encryptionKey: String, pin: String) {
         val salt = RandomGenerator.generateSalt()
-        setEncryptionOptions(key = pin, salt = salt)
-        settings.putString(ENCRYPTION_KEY, encrypt(encryptionKey))
+        Encryption.setEncryptionOptions(key = pin, salt = salt)
+        settings.putString(ENCRYPTION_KEY, Encryption.encrypt(encryptionKey))
         settings.putString(ENCRYPTION_KEY_SALT, salt)
     }
 
@@ -23,8 +23,8 @@ class RushSimpleStorage: SimpleStorage {
         val eKey = settings.getString(ENCRYPTION_KEY)
         val salt = settings.getString(ENCRYPTION_KEY_SALT)
         if (eKey.isNotBlank() && salt.isNotBlank()) {
-            setEncryptionOptions(key = pin, salt = salt)
-            return decrypt(eKey)
+            Encryption.setEncryptionOptions(key = pin, salt = salt)
+            return Encryption.decrypt(eKey)
         }
         return ""
     }

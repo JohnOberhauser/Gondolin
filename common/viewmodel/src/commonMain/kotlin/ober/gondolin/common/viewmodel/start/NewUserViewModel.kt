@@ -3,6 +3,7 @@ package ober.gondolin.common.viewmodel.start
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import ober.gondolin.common.navigation.Screen
 import ober.gondolin.common.utils.encryption.RandomGenerator
@@ -19,15 +20,18 @@ class NewUserViewModel(
     private val simpleStorage: SimpleStorage by di.instance()
 
     val encryptionKey = MutableStateFlow("")
-    val pin = MutableStateFlow("").apply {
+    val pin = MutableStateFlow("")
+
+    private val _doneButtonEnabled = MutableStateFlow(false).apply {
         viewModelScope.launch {
-            collect {
-                doneButtonEnabled.value = it.isNotBlank()
+            encryptionKey.combine(pin) { key, pin ->
+                key.isNotBlank() && pin.isNotBlank()
+            }.collect {
+                value = it
             }
         }
     }
-
-    val doneButtonEnabled = MutableStateFlow(false)
+    val doneButtonEnabled = _doneButtonEnabled
 
     fun onGenerateClicked() {
         encryptionKey.value = RandomGenerator.generateRandomKey(DEFAULT_KEY_LENGTH)
