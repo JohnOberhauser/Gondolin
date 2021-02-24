@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
                 implementation(project(":common:utils"))
                 implementation(Deps.JetBrains.Kotlin.coroutines)
