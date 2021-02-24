@@ -4,13 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ober.gondolin.common.navigation.Navigator
 import ober.gondolin.common.navigation.Screen
-import ober.gondolin.common.ui.screens.main.Categories
+import ober.gondolin.common.ui.screens.main.CategoriesScreen
 import ober.gondolin.common.ui.screens.start.NewUserScreen
 import ober.gondolin.common.ui.screens.start.SplashScreen
 
@@ -23,9 +21,9 @@ fun Root() {
     }
 
     when (currentScreen.value) {
-        is Screen.Splash -> SplashScreen()
+        is Screen.Splash -> SplashScreen().Create()
         is Screen.NewUser -> NewUserScreen().Create()
-        is Screen.Categories -> Categories()
+        is Screen.Categories -> CategoriesScreen().Create()
     }
 
     rememberCoroutineScope().launch {

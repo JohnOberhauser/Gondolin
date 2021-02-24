@@ -15,10 +15,7 @@ kotlin {
 
         commonMain {
             dependencies {
-                implementation(Deps.Injection.popkorn)
-                kapt {
-                    annotationProcessor(Deps.Injection.popkornCompiler)
-                }
+
             }
         }
 

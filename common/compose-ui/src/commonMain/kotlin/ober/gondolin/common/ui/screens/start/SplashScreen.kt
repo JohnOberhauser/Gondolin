@@ -12,14 +12,22 @@ import kotlinx.coroutines.launch
 import ober.gondolin.common.navigation.Navigator
 import ober.gondolin.common.navigation.Screen
 
-@Composable
-fun SplashScreen() {
-    Surface(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(),
-        color = MaterialTheme.colors.primary
-    ) {
-        Screen.Splash.navigateToNewUserScreen()
+class SplashScreen {
+
+    @Composable
+    fun Create() {
+        Content()
+    }
+
+    @Composable
+    private fun Content() {
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(),
+            color = MaterialTheme.colors.primary
+        ) {
+            Screen.Splash.navigateToNewUserScreen()
+        }
     }
 }

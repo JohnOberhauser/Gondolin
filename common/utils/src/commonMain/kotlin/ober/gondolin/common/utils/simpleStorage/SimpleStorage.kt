@@ -1,6 +1,5 @@
 package ober.gondolin.common.utils.simpleStorage
 
-import cc.popkorn.annotations.Injectable
 import com.russhwolf.settings.Settings
 import ober.gondolin.common.utils.encryption.*
 
@@ -9,7 +8,6 @@ interface SimpleStorage {
     fun getEncryptionKey(pin: String): String
 }
 
-@Injectable
 class RushSimpleStorage: SimpleStorage {
 
     private val settings: Settings = Settings()

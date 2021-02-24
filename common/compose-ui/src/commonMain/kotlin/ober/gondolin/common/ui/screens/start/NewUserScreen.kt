@@ -38,7 +38,7 @@ class NewUserScreen {
             PinTextField()
             DoneButton()
             Spacer(modifier = Modifier.padding(16.dp))
-            ExplainationText()
+            ExplanationText()
         }
     }
 
@@ -102,7 +102,10 @@ class NewUserScreen {
                     all = 16.dp
                 ),
             value = textValue.value,
-            onValueChange = { textValue.value = it },
+            onValueChange = {
+                textValue.value = it
+                viewModel.pin.value = it.text
+            },
             label = {
                 Text(
                     text = "PIN",
@@ -115,6 +118,14 @@ class NewUserScreen {
 
     @Composable
     private fun DoneButton() {
+        val enabled = remember { mutableStateOf(false) }
+
+        rememberCoroutineScope().launch {
+            viewModel.doneButtonEnabled.collect {
+                enabled.value = it
+            }
+        }
+
         Button(
             modifier = Modifier
                 .fillMaxWidth()
@@ -122,19 +133,19 @@ class NewUserScreen {
                     start = 16.dp,
                     end = 16.dp
                 ),
-            onClick = {},
+            onClick = { viewModel.onDoneClicked() },
             content = {
                 Text(
                     text = "DONE",
                     style = TextStyles.monospaceBold
                 )
             },
-            enabled = false
+            enabled = enabled.value
         )
     }
 
     @Composable
-    private fun ExplainationText() {
+    private fun ExplanationText() {
         Text(
             modifier = Modifier
                 .fillMaxWidth()

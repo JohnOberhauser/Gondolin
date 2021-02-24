@@ -10,11 +10,9 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":common:utils"))
+                implementation(project(":common:navigation"))
                 implementation(Deps.JetBrains.Kotlin.coroutines)
-                implementation(Deps.Injection.popkorn)
-                kapt {
-                    annotationProcessor(Deps.Injection.popkornCompiler)
-                }
+                implementation(Deps.Injection.Kodein.kodein)
             }
         }
     }

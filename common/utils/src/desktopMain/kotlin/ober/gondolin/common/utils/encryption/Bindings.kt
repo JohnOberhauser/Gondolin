@@ -25,6 +25,7 @@ actual fun setEncryptionOptions(
     iv: ByteArray,
     iterationCount: Int,
     algorithm: String,
+    keyAlgorithm: String,
     charset: String,
     digestAlgorithm: String,
     base64Mode: Base64Mode,
@@ -43,5 +44,6 @@ actual fun setEncryptionOptions(
         .setBase64Mode(base64Mode.value)
         .setSecureRandomAlgorithm(secureRandomAlgorithm)
         .setSecretKeyType(secretKeyType)
+        .setKeyAlgorithm(keyAlgorithm)
         .build()
 }

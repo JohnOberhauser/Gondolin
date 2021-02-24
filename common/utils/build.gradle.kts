@@ -9,10 +9,7 @@ kotlin {
             dependencies {
                 implementation(Deps.RusshWolf.settings)
                 implementation(Deps.RusshWolf.settingsNoArg)
-                implementation(Deps.Injection.popkorn)
-                kapt {
-                    annotationProcessor(Deps.Injection.popkornCompiler)
-                }
+                implementation(Deps.Injection.Kodein.kodein)
             }
         }
 

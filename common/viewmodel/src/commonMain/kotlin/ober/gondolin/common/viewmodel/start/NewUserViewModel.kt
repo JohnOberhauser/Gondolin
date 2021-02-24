@@ -1,13 +1,14 @@
 package ober.gondolin.common.viewmodel.start
 
-import cc.popkorn.inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import ober.gondolin.common.navigation.Screen
 import ober.gondolin.common.utils.encryption.RandomGenerator
 import ober.gondolin.common.utils.simpleStorage.SimpleStorage
 import ober.gondolin.common.viewmodel.BaseViewModel
+import org.kodein.di.instance
 
 class NewUserViewModel(
     viewModelScope: CoroutineScope
@@ -15,7 +16,7 @@ class NewUserViewModel(
     viewModelScope
 ) {
 
-    private val simpleStorage: SimpleStorage = inject()
+    private val simpleStorage: SimpleStorage by di.instance()
 
     val encryptionKey = MutableStateFlow("")
     val pin = MutableStateFlow("").apply {
@@ -34,6 +35,7 @@ class NewUserViewModel(
 
     fun onDoneClicked() {
         simpleStorage.saveEncryptionKey(encryptionKey = encryptionKey.value, pin = pin.value)
+        Screen.NewUser.navigateToCategoriesScreen()
     }
 
     companion object {

@@ -78,10 +78,6 @@ object Deps {
         }
     }
 
-    object KorLibs {
-        const val krypto = "com.soywiz.korlibs.krypto:krypto:2.0.6"
-    }
-
     object RusshWolf {
         const val settings = "com.russhwolf:multiplatform-settings:0.7.3"
         const val settingsNoArg = "com.russhwolf:multiplatform-settings-no-arg:0.7.3"
@@ -98,8 +94,14 @@ object Deps {
     }
 
     object Injection {
-        private const val VERSION = "2.1.0"
-        const val popkorn = "cc.popkorn:popkorn:$VERSION"
-        const val popkornCompiler = "cc.popkorn:popkorn-compiler:$VERSION"
+        object PopKorn {
+            private const val VERSION = "2.1.0"
+            const val popkorn = "cc.popkorn:popkorn:$VERSION"
+            const val popkornCompiler = "cc.popkorn:popkorn-compiler:$VERSION"
+        }
+        object Kodein {
+            private const val VERSION = "7.3.0"
+            const val kodein = "org.kodein.di:kodein-di:$VERSION"
+        }
     }
 }
