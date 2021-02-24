@@ -13,18 +13,27 @@ sqldelight {
 kotlin {
     sourceSets {
 
+        commonMain {
+            dependencies {
+                implementation(Deps.Injection.popkorn)
+                kapt {
+                    annotationProcessor(Deps.Injection.popkornCompiler)
+                }
+            }
+        }
+
         androidMain {
             dependencies {
                 implementation(Deps.Squareup.SQLDelight.androidDriver)
                 implementation(Deps.Squareup.SQLDelight.sqliteDriver)
-                implementation(Deps.SqlCipher.sqlCipher)
+                implementation(Deps.Encryption.SqlCipher.sqlCipher)
             }
         }
 
         desktopMain {
             dependencies {
                 implementation(Deps.Squareup.SQLDelight.sqliteDriver)
-                implementation(Deps.SqlCipher.sqlCipherJvm)
+                implementation(Deps.Encryption.SqlCipher.sqlCipherJvm)
             }
         }
 

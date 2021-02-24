@@ -1,5 +1,8 @@
 package ober.gondolin.common.utils.encryption
 
-class KeyManager {
+import cc.popkorn.annotations.Injectable
 
+@Injectable
+class KeyManager {
+    
 }

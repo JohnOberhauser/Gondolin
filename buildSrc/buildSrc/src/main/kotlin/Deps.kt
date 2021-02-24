@@ -86,8 +86,19 @@ object Deps {
         const val settings = "com.russhwolf:multiplatform-settings:0.7.3"
     }
 
-    object SqlCipher {
-        const val sqlCipher = "net.zetetic:android-database-sqlcipher:4.4.2"
-        const val sqlCipherJvm = "io.github.willena:sqlite-jdbc:3.33.0.1"
+    object Encryption {
+        object SqlCipher {
+            const val sqlCipher = "net.zetetic:android-database-sqlcipher:4.4.2"
+            const val sqlCipherJvm = "io.github.willena:sqlite-jdbc:3.33.0.1"
+        }
+        object Simboise {
+            const val encryption = "com.github.simbiose:Encryption:2.0.1"
+        }
+    }
+
+    object Injection {
+        private const val VERSION = "2.1.0"
+        const val popkorn = "cc.popkorn:popkorn:$VERSION"
+        const val popkornCompiler = "cc.popkorn:popkorn-compiler:$VERSION"
     }
 }

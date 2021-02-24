@@ -5,13 +5,25 @@ plugins {
 
 kotlin {
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
-                implementation(Deps.ArkIvanov.MVIKotlin.rx)
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)
-                implementation(Deps.ArkIvanov.Decompose.decompose)
-                implementation(Deps.Badoo.Reaktive.reaktive)
                 implementation(Deps.RusshWolf.settings)
+                implementation(Deps.Injection.popkorn)
+                kapt {
+                    annotationProcessor(Deps.Injection.popkornCompiler)
+                }
+            }
+        }
+
+        androidMain {
+            dependencies {
+                implementation(Deps.Encryption.Simboise.encryption)
+            }
+        }
+
+        desktopMain {
+            dependencies {
+                implementation(Deps.Encryption.Simboise.encryption)
             }
         }
     }

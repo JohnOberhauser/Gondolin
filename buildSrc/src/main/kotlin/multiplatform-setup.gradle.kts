@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-multiplatform")
+    id("kotlin-kapt")
 }
 
 kotlin {
