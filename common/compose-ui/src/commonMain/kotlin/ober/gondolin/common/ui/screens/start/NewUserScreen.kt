@@ -26,8 +26,8 @@ class NewUserScreen {
                 .fillMaxWidth()
                 .fillMaxHeight()
         ) {
-            EncryptionTextField(viewModel)
-            GenerateButton(viewModel)
+            EncryptionTextField()
+            GenerateButton()
             Spacer(modifier = Modifier.padding(16.dp))
             PinTextField()
             DoneButton()
@@ -37,7 +37,7 @@ class NewUserScreen {
     }
 
     @Composable
-    private fun EncryptionTextField(viewModel: NewUserViewModel) {
+    private fun EncryptionTextField() {
         CyberTextField(
             modifier = Modifier
                 .fillMaxWidth()
@@ -57,7 +57,7 @@ class NewUserScreen {
     }
 
     @Composable
-    private fun GenerateButton(viewModel: NewUserViewModel) {
+    private fun GenerateButton() {
         Button(
             modifier = Modifier
                 .fillMaxWidth()

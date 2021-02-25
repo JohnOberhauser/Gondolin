@@ -7,6 +7,7 @@ import ober.gondolin.common.navigation.Screen
 import ober.gondolin.common.ui.screens.main.CategoriesScreen
 import ober.gondolin.common.ui.screens.start.NewUserScreen
 import ober.gondolin.common.ui.screens.start.SplashScreen
+import ober.gondolin.common.ui.screens.start.UnlockScreen
 import org.kodein.di.instance
 
 class Root {
@@ -21,6 +22,7 @@ class Root {
             is Screen.Splash -> SplashScreen().Create()
             is Screen.NewUser -> NewUserScreen().Create()
             is Screen.Categories -> CategoriesScreen().Create()
+            is Screen.Unlock -> UnlockScreen().Create()
         }
     }
 }

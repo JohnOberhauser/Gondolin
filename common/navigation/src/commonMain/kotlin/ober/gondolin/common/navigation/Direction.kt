@@ -4,7 +4,9 @@ sealed class Direction {
 
     data class Push(val screen: Screen): Direction()
 
-    data class Pop(val upTo: Screen? = null): Direction()
+    object Pop: Direction()
+
+    data class PopUpTo(val screen: Screen, val inclusive: Boolean = false): Direction()
 }
 
 abstract class Directions(

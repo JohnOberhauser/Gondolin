@@ -6,7 +6,7 @@ class Navigator internal constructor(
     root: Screen
 ) {
 
-    val stack = mutableListOf<Screen>()
+    private val stack = mutableListOf<Screen>()
     var currentScreen = MutableStateFlow(root)
 
     init {
@@ -20,12 +20,18 @@ class Navigator internal constructor(
                     stack.add(direction.screen)
                 }
                 is Direction.Pop -> {
-                    if (stack.isEmpty() || (direction.upTo != null && !stack.contains(direction.upTo))) {
+                    stack.removeLastOrNull()
+                }
+                is Direction.PopUpTo -> {
+                    if (stack.isEmpty() || !stack.contains(direction.screen)) {
                         continue
                     }
                     for (screen in stack.reversed()) {
+                        if (!direction.inclusive && direction.screen == screen) {
+                            break
+                        }
                         stack.remove(screen)
-                        if (direction.upTo == null || direction.upTo == screen) {
+                        if (direction.screen == screen) {
                             break
                         }
                     }
@@ -42,7 +48,7 @@ class Navigator internal constructor(
      * return true if the stack is empty after popping
      */
     fun navigateUp(): Boolean {
-        stack.removeLast()
+        stack.removeLastOrNull()
         return if (stack.isEmpty()) {
             true
         } else {

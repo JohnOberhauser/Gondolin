@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import ober.gondolin.common.navigation.Screen
 import ober.gondolin.common.utils.UtilsModule
+import ober.gondolin.common.utils.encryption.KeyManager
 import ober.gondolin.common.utils.encryption.RandomGenerator
 import ober.gondolin.common.utils.simpleStorage.SimpleStorage
 import ober.gondolin.common.viewmodel.BaseViewModel
@@ -39,6 +40,7 @@ class NewUserViewModel(
 
     fun onDoneClicked() {
         simpleStorage.saveEncryptionKey(encryptionKey = encryptionKey.value, pin = pin.value)
+        KeyManager.key = encryptionKey.value
         navigator.navigate(Screen.NewUser.ToCategoriesScreen)
     }
 
