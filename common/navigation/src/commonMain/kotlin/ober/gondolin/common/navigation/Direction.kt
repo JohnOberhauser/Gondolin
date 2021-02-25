@@ -6,3 +6,7 @@ sealed class Direction {
 
     data class Pop(val upTo: Screen? = null): Direction()
 }
+
+abstract class Directions(
+    val directions: List<Direction>
+)

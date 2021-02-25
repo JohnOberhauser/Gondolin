@@ -7,7 +7,11 @@ import org.kodein.di.bind
 import org.kodein.di.singleton
 
 object UtilsModule {
-    val module = DI.Module("UtilsModule") {
+    private val module = DI.Module("UtilsModule") {
         bind<SimpleStorage>() with singleton { RushSimpleStorage() }
+    }
+
+    val di = DI {
+        import(module)
     }
 }

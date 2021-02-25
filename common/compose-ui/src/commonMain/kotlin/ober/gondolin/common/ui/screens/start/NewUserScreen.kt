@@ -4,10 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import ober.gondolin.common.ui.common.textfield.CyberTextField
 import ober.gondolin.common.ui.textStyle.TextStyles
 import ober.gondolin.common.viewmodel.start.NewUserViewModel
@@ -41,15 +38,13 @@ class NewUserScreen {
 
     @Composable
     private fun EncryptionTextField(viewModel: NewUserViewModel) {
-        val textValue = viewModel.encryptionKey.collectAsState()
-
         CyberTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
                     all = 16.dp
                 ),
-            value = textValue.value,
+            value = viewModel.encryptionKey.collectAsState().value,
             onValueChange = { viewModel.encryptionKey.value = it },
             label = {
                 Text(
@@ -84,15 +79,13 @@ class NewUserScreen {
 
     @Composable
     private fun PinTextField() {
-        val textValue = viewModel.pin.collectAsState()
-
         CyberTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
                     all = 16.dp
                 ),
-            value = textValue.value,
+            value = viewModel.pin.collectAsState().value,
             onValueChange = { viewModel.pin.value = it },
             label = {
                 Text(
@@ -106,8 +99,6 @@ class NewUserScreen {
 
     @Composable
     private fun DoneButton() {
-        val enabled = viewModel.doneButtonEnabled.collectAsState()
-
         Button(
             modifier = Modifier
                 .fillMaxWidth()
@@ -122,7 +113,7 @@ class NewUserScreen {
                     style = TextStyles.monospaceBold
                 )
             },
-            enabled = enabled.value
+            enabled = viewModel.doneButtonEnabled.collectAsState().value
         )
     }
 

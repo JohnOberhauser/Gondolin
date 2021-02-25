@@ -3,18 +3,20 @@ package ober.gondolin.common.navigation
 sealed class Screen {
 
     object Splash: Screen() {
-        fun navigateToNewUserScreen() {
-            Navigator.navigator?.navigate(Direction.Push(NewUser))
-        }
+        object ToNewUserScreen: Directions(
+            listOf(
+                Direction.Push(NewUser)
+            )
+        )
     }
 
     object NewUser: Screen() {
-        fun navigateToCategoriesScreen() {
-            Navigator.navigator?.navigate(
+        object ToCategoriesScreen: Directions(
+            listOf(
                 Direction.Pop(upTo = Splash),
                 Direction.Push(Categories)
             )
-        }
+        )
     }
 
     object Categories: Screen()

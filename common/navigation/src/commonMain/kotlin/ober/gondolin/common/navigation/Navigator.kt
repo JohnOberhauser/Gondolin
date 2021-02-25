@@ -2,26 +2,25 @@ package ober.gondolin.common.navigation
 
 import kotlinx.coroutines.flow.MutableStateFlow
 
-class Navigator(
+class Navigator internal constructor(
     root: Screen
 ) {
 
-    private val stack = mutableListOf<Screen>()
+    val stack = mutableListOf<Screen>()
     var currentScreen = MutableStateFlow(root)
 
     init {
         stack.add(root)
-        navigator = this
     }
 
-    fun navigate(vararg directions: Direction) {
-        for (direction in directions) {
+    fun navigate(directions: Directions) {
+        for (direction in directions.directions) {
             when (direction) {
                 is Direction.Push -> {
                     stack.add(direction.screen)
                 }
                 is Direction.Pop -> {
-                    if (stack.isEmpty()) {
+                    if (stack.isEmpty() || (direction.upTo != null && !stack.contains(direction.upTo))) {
                         continue
                     }
                     for (screen in stack.reversed()) {
@@ -34,10 +33,23 @@ class Navigator(
             }
         }
 
+        if (stack.isEmpty()) throw EmptyStackException()
+
         currentScreen.value = stack.last()
     }
 
-    companion object {
-        var navigator: Navigator? = null
+    /**
+     * return true if the stack is empty after popping
+     */
+    fun navigateUp(): Boolean {
+        stack.removeLast()
+        return if (stack.isEmpty()) {
+            true
+        } else {
+            currentScreen.value = stack.last()
+            false
+        }
     }
+
+    class EmptyStackException: Exception()
 }

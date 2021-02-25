@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             ComposeAppTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    Root()
+                    Root().Create()
                 }
             }
         }

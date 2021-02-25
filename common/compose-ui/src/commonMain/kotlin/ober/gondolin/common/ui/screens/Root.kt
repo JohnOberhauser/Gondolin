@@ -1,37 +1,26 @@
 package ober.gondolin.common.ui.screens
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import androidx.compose.runtime.*
+import ober.gondolin.common.navigation.NavigationModule
 import ober.gondolin.common.navigation.Navigator
 import ober.gondolin.common.navigation.Screen
 import ober.gondolin.common.ui.screens.main.CategoriesScreen
 import ober.gondolin.common.ui.screens.start.NewUserScreen
 import ober.gondolin.common.ui.screens.start.SplashScreen
+import org.kodein.di.instance
 
-@Composable
-fun Root() {
-    val navigator = Navigator(Screen.Splash)
+class Root {
 
-    val currentScreen = remember {
-        mutableStateOf(navigator.currentScreen.value)
-    }
+    private val navigator: Navigator by NavigationModule.di.instance()
 
-    when (currentScreen.value) {
-        is Screen.Splash -> SplashScreen().Create()
-        is Screen.NewUser -> NewUserScreen().Create()
-        is Screen.Categories -> CategoriesScreen().Create()
-    }
+    @Composable
+    fun Create() {
+        val currentScreen = navigator.currentScreen.collectAsState()
 
-    rememberCoroutineScope().launch {
-        navigator.currentScreen.collect {
-            if (it is Screen.Splash || it == currentScreen.value) {
-                return@collect
-            }
-            currentScreen.value = it
+        when (currentScreen.value) {
+            is Screen.Splash -> SplashScreen().Create()
+            is Screen.NewUser -> NewUserScreen().Create()
+            is Screen.Categories -> CategoriesScreen().Create()
         }
     }
 }
