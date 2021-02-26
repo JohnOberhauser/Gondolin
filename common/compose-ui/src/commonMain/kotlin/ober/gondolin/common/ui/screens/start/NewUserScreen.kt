@@ -13,8 +13,8 @@ class NewUserScreen {
     private lateinit var viewModel: NewUserViewModel
 
     @Composable
-    fun Create() {
-        viewModel = NewUserViewModel(rememberCoroutineScope())
+    fun Create(viewModel: NewUserViewModel) {
+        this.viewModel = viewModel
 
         Content()
     }

@@ -1,23 +1,29 @@
 package ober.gondolin.common.viewmodel.start
 
-import ober.gondolin.common.navigation.NavigationModule
+import kotlinx.coroutines.launch
 import ober.gondolin.common.navigation.Navigator
-import ober.gondolin.common.navigation.TopLevelScreen
 import ober.gondolin.common.utils.UtilsModule
 import ober.gondolin.common.utils.simpleStorage.SimpleStorage
-import ober.gondolin.common.viewmodel.BaseViewModel
+import ober.gondolin.common.viewmodel.NavigationModule
+import ober.gondolin.common.viewmodel.TopLevelScreen
 import org.kodein.di.instance
 
-class SplashScreenViewModel: BaseViewModel() {
+class SplashScreenViewModel: TopLevelScreen.Splash() {
 
     private val navigator: Navigator<TopLevelScreen> by NavigationModule.di.instance()
     private val simpleStorage: SimpleStorage by UtilsModule.di.instance()
 
-    fun start() {
-        if (simpleStorage.doesValueExist(SimpleStorage.Key.ENCRYPTION_KEY)) {
-            navigator.navigate(TopLevelScreen.Splash.ToUnlockScreen)
-        } else {
-            navigator.navigate(TopLevelScreen.Splash.ToNewUserScreen)
+    init {
+        start()
+    }
+
+    private fun start() {
+        screenScope.launch {
+            if (simpleStorage.doesValueExist(SimpleStorage.Key.ENCRYPTION_KEY)) {
+                navigator.navigate(ToUnlockScreen)
+            } else {
+                navigator.navigate(ToNewUserScreen)
+            }
         }
     }
 }

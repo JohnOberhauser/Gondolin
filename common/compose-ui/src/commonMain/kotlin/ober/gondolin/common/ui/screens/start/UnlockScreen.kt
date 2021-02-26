@@ -5,7 +5,6 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ober.gondolin.common.ui.common.textfield.CyberTextField
@@ -16,8 +15,8 @@ class UnlockScreen {
     private lateinit var viewModel: UnlockViewModel
 
     @Composable
-    fun Create() {
-        viewModel = UnlockViewModel(rememberCoroutineScope())
+    fun Create(viewModel: UnlockViewModel) {
+        this.viewModel = viewModel
 
         Content()
     }

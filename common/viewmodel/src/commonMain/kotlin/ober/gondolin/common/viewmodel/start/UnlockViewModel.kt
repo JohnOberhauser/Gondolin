@@ -1,22 +1,18 @@
 package ober.gondolin.common.viewmodel.start
 
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import ober.gondolin.common.navigation.NavigationModule
 import ober.gondolin.common.navigation.Navigator
-import ober.gondolin.common.navigation.TopLevelScreen
 import ober.gondolin.common.utils.UtilsModule
 import ober.gondolin.common.utils.encryption.KeyManager
 import ober.gondolin.common.utils.simpleStorage.SimpleStorage
-import ober.gondolin.common.viewmodel.BaseViewModel
+import ober.gondolin.common.viewmodel.NavigationModule
+import ober.gondolin.common.viewmodel.TopLevelScreen
 import org.kodein.di.instance
 
-class UnlockViewModel(
-    viewModelScope: CoroutineScope
-): BaseViewModel() {
+class UnlockViewModel: TopLevelScreen.Unlock() {
 
     private val navigator: Navigator<TopLevelScreen> by NavigationModule.di.instance()
     private val simpleStorage: SimpleStorage by UtilsModule.di.instance()
@@ -24,7 +20,7 @@ class UnlockViewModel(
     val pin = MutableStateFlow("")
 
     private val _unlockButtonEnabled = MutableStateFlow(false).apply {
-        viewModelScope.launch {
+        screenScope.launch {
             pin.collect {
                 value = it.isNotBlank()
             }
@@ -38,7 +34,7 @@ class UnlockViewModel(
             pin.value = ""
         } else {
             KeyManager.key = key
-            navigator.navigate(TopLevelScreen.Unlock.ToCategoriesScreen)
+            navigator.navigate(ToCategoriesScreen)
         }
     }
 }

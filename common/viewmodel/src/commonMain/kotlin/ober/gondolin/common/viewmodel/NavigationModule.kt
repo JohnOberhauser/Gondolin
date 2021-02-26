@@ -1,5 +1,7 @@
-package ober.gondolin.common.navigation
+package ober.gondolin.common.viewmodel
 
+import ober.gondolin.common.navigation.Navigator
+import ober.gondolin.common.viewmodel.start.SplashScreenViewModel
 import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.singleton
@@ -7,10 +9,10 @@ import org.kodein.di.singleton
 object NavigationModule {
     private val module = DI.Module("NavigationModule") {
         bind<Navigator<TopLevelScreen>>() with singleton {
-            Navigator(TopLevelScreen.Splash)
+            Navigator(SplashScreenViewModel())
         }
         bind<Navigator<MainLevelScreen>>() with singleton {
-            Navigator(MainLevelScreen.CategoriesScreen)
+            Navigator(MainLevelScreen.Categories())
         }
     }
 

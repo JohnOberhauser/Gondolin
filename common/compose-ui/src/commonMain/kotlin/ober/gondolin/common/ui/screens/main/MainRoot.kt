@@ -6,13 +6,9 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import ober.gondolin.common.navigation.MainLevelScreen
-import ober.gondolin.common.navigation.NavigationModule
 import ober.gondolin.common.navigation.Navigator
-import ober.gondolin.common.navigation.TopLevelScreen
-import ober.gondolin.common.ui.screens.start.NewUserScreen
-import ober.gondolin.common.ui.screens.start.SplashScreen
-import ober.gondolin.common.ui.screens.start.UnlockScreen
+import ober.gondolin.common.viewmodel.MainLevelScreen
+import ober.gondolin.common.viewmodel.NavigationModule
 import org.kodein.di.instance
 
 class MainRoot {
@@ -34,7 +30,7 @@ class MainRoot {
             val currentScreen = navigator.currentScreen.collectAsState()
 
             when (currentScreen.value) {
-                is MainLevelScreen.CategoriesScreen -> CategoriesScreen().Create()
+                is MainLevelScreen.Categories -> CategoriesScreen().Create()
             }
         }
     }

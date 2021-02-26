@@ -3,13 +3,14 @@ package ober.gondolin.common.ui.screens
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
-import ober.gondolin.common.navigation.NavigationModule
 import ober.gondolin.common.navigation.Navigator
-import ober.gondolin.common.navigation.TopLevelScreen
 import ober.gondolin.common.ui.screens.main.MainRoot
 import ober.gondolin.common.ui.screens.start.NewUserScreen
-import ober.gondolin.common.ui.screens.start.SplashScreen
 import ober.gondolin.common.ui.screens.start.UnlockScreen
+import ober.gondolin.common.viewmodel.NavigationModule
+import ober.gondolin.common.viewmodel.TopLevelScreen
+import ober.gondolin.common.viewmodel.start.NewUserViewModel
+import ober.gondolin.common.viewmodel.start.UnlockViewModel
 import org.kodein.di.instance
 
 class Root {
@@ -21,11 +22,13 @@ class Root {
         Surface(color = MaterialTheme.colors.background) {
             val currentScreen = navigator.currentScreen.collectAsState()
 
-            when (currentScreen.value) {
-                is TopLevelScreen.Splash -> SplashScreen().Create()
-                is TopLevelScreen.NewUser -> NewUserScreen().Create()
-                is TopLevelScreen.Unlock -> UnlockScreen().Create()
-                is TopLevelScreen.Main -> MainRoot().Create()
+            currentScreen.value.let { screen ->
+                when (screen) {
+                    is TopLevelScreen.Splash -> {}
+                    is TopLevelScreen.NewUser -> NewUserScreen().Create(screen as NewUserViewModel)
+                    is TopLevelScreen.Unlock -> UnlockScreen().Create(screen as UnlockViewModel)
+                    is TopLevelScreen.Main -> MainRoot().Create()
+                }
             }
         }
     }
