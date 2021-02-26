@@ -3,12 +3,14 @@ object Deps {
     object JetBrains {
         object Kotlin {
             // __KOTLIN_COMPOSE_VERSION__
-            private const val VERSION = "1.4.30"
+            const val VERSION = "1.4.30"
             const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$VERSION"
             const val testCommon = "org.jetbrains.kotlin:kotlin-test-common:$VERSION"
             const val testJunit = "org.jetbrains.kotlin:kotlin-test-junit:$VERSION"
             const val testAnnotationsCommon = "org.jetbrains.kotlin:kotlin-test-annotations-common:$VERSION"
             const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
+            const val serializationPlugin = "org.jetbrains.kotlin.plugin.serialization:$VERSION"
+            const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0"
         }
 
         object Compose {

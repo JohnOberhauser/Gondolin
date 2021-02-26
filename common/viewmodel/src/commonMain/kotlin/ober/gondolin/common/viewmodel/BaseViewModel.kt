@@ -1,9 +1,5 @@
 package ober.gondolin.common.viewmodel
 
-import ober.gondolin.common.navigation.NavigationModule
-import ober.gondolin.common.navigation.Navigator
-import org.kodein.di.instance
-
 abstract class BaseViewModel {
 
 }

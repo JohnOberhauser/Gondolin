@@ -43,7 +43,11 @@ class NewUserViewModel(
     }
 
     fun onDoneClicked() {
-        simpleStorage.saveEncryptionKey(encryptionKey = encryptionKey.value, pin = pin.value)
+        simpleStorage.saveString(
+            string = encryptionKey.value,
+            encryptionKey = pin.value,
+            key = SimpleStorage.Key.ENCRYPTION_KEY
+        )
         KeyManager.key = encryptionKey.value
         navigator.navigate(TopLevelScreen.NewUser.ToCategoriesScreen)
     }

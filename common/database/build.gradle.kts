@@ -2,6 +2,7 @@ plugins {
     id("multiplatform-setup")
     id("android-setup")
     id("com.squareup.sqldelight")
+    kotlin("plugin.serialization") version Deps.JetBrains.Kotlin.VERSION
 }
 
 sqldelight {
@@ -16,6 +17,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(Deps.Injection.Kodein.kodein)
+                implementation(Deps.JetBrains.Kotlin.serialization)
             }
         }
 

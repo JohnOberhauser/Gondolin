@@ -14,7 +14,7 @@ class SplashScreenViewModel: BaseViewModel() {
     private val simpleStorage: SimpleStorage by UtilsModule.di.instance()
 
     fun start() {
-        if (simpleStorage.hasSavedEncryptionKey) {
+        if (simpleStorage.doesValueExist(SimpleStorage.Key.ENCRYPTION_KEY)) {
             navigator.navigate(TopLevelScreen.Splash.ToUnlockScreen)
         } else {
             navigator.navigate(TopLevelScreen.Splash.ToNewUserScreen)

@@ -33,7 +33,7 @@ class UnlockViewModel(
     val unlockButtonEnabled: StateFlow<Boolean> = _unlockButtonEnabled
 
     fun onUnlockClicked() {
-        val key = simpleStorage.getEncryptionKey(pin.value)
+        val key = simpleStorage.getString(pin.value, SimpleStorage.Key.ENCRYPTION_KEY)
         if (key.isBlank()) {
             pin.value = ""
         } else {

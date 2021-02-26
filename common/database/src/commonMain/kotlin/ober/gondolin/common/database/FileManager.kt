@@ -7,17 +7,17 @@ import ober.gondolin.common.database.models.index.Index
 class FileManager(key: String) {
     val database = GondolinDatabase(getCredentialsDriver(key))
 
-    val index: Index by lazy {
+//    val index: Index by lazy {
+//
+//    }
 
-    }
-
-    fun getRootDirectory(): Directory {
-        val files = getAllFiles()
-
-        files.forEach {
-
-        }
-    }
+//    fun getRootDirectory(): Directory {
+//        val files = getAllFiles()
+//
+//        files.forEach {
+//
+//        }
+//    }
 
     fun getAllFiles(): List<File> {
         val credentials = database.gondolinDatabaseQueries.selectAllBasicInfoCredentials().executeAsList()
@@ -41,7 +41,7 @@ class FileManager(key: String) {
         return allFiles
     }
 
-    fun createNewIndex(): Index {
-
-    }
+//    fun createNewIndex(): Index {
+//
+//    }
 }
