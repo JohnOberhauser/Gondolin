@@ -1,13 +1,7 @@
 package ober.gondolin.common.ui.screens.start
 
-import androidx.compose.animation.Animatable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -30,16 +24,13 @@ class UnlockScreen {
 
     @Composable
     fun Content() {
-        Surface(
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(),
-            color = MaterialTheme.colors.background
+        Column(
+                modifier = Modifier
+                        .fillMaxSize()
         ) {
-            Column {
-                PinTextField()
-                UnlockButton()
-            }
+            Spacer(modifier = Modifier.padding(48.dp))
+            PinTextField()
+            UnlockButton()
         }
     }
 

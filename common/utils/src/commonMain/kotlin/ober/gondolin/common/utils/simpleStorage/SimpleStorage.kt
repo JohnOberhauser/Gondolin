@@ -1,6 +1,7 @@
 package ober.gondolin.common.utils.simpleStorage
 
 import com.russhwolf.settings.Settings
+import ober.gondolin.common.database.models.index.Index
 import ober.gondolin.common.utils.encryption.*
 
 interface SimpleStorage {
@@ -11,6 +12,9 @@ interface SimpleStorage {
      */
     fun getEncryptionKey(pin: String): String
     val hasSavedEncryptionKey: Boolean
+
+//    fun getStoredIndex(key: String): Index
+//    fun saveIndex(index: Index, key: String)
 }
 
 class RushSimpleStorage: SimpleStorage {
@@ -45,8 +49,21 @@ class RushSimpleStorage: SimpleStorage {
             return eKey.isNotBlank() && salt.isNotBlank()
         }
 
+//    override fun getStoredIndex(key: String): Index {
+//
+//    }
+//
+//    override fun saveIndex(index: Index, key: String) {
+//        val salt = RandomGenerator.generateSalt()
+//        Encryption.setEncryptionOptions(key, salt)
+//        settings.putString(INDEX, Encryption.encrypt(index))
+//        settings.putString(INDEX_SALT, salt)
+//    }
+
     companion object {
         private const val ENCRYPTION_KEY = "encryption_key"
         private const val ENCRYPTION_KEY_SALT = "encryption_key_salt"
+        private const val INDEX = "index"
+        private const val INDEX_SALT = "index_salt"
     }
 }

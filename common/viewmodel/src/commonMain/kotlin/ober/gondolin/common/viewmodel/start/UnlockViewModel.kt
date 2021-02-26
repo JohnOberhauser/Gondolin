@@ -5,7 +5,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import ober.gondolin.common.navigation.Screen
+import ober.gondolin.common.navigation.NavigationModule
+import ober.gondolin.common.navigation.Navigator
+import ober.gondolin.common.navigation.TopLevelScreen
 import ober.gondolin.common.utils.UtilsModule
 import ober.gondolin.common.utils.encryption.KeyManager
 import ober.gondolin.common.utils.simpleStorage.SimpleStorage
@@ -16,6 +18,7 @@ class UnlockViewModel(
     viewModelScope: CoroutineScope
 ): BaseViewModel() {
 
+    private val navigator: Navigator<TopLevelScreen> by NavigationModule.di.instance()
     private val simpleStorage: SimpleStorage by UtilsModule.di.instance()
 
     val pin = MutableStateFlow("")
@@ -35,7 +38,7 @@ class UnlockViewModel(
             pin.value = ""
         } else {
             KeyManager.key = key
-            navigator.navigate(Screen.Unlock.ToCategoriesScreen)
+            navigator.navigate(TopLevelScreen.Unlock.ToCategoriesScreen)
         }
     }
 }

@@ -23,13 +23,20 @@ class NewUserScreen {
     private fun Content() {
         Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
+                .fillMaxSize()
+                .padding(
+                    horizontal = 16.dp
+                )
         ) {
+            Spacer(modifier = Modifier.padding(16.dp))
             EncryptionTextField()
+            Spacer(modifier = Modifier.padding(8.dp))
+            ReEnterEncryptionTextField()
+            Spacer(modifier = Modifier.padding(16.dp))
             GenerateButton()
             Spacer(modifier = Modifier.padding(16.dp))
             PinTextField()
+            Spacer(modifier = Modifier.padding(16.dp))
             DoneButton()
             Spacer(modifier = Modifier.padding(16.dp))
             ExplanationText()
@@ -40,10 +47,7 @@ class NewUserScreen {
     private fun EncryptionTextField() {
         CyberTextField(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    all = 16.dp
-                ),
+                .fillMaxWidth(),
             value = viewModel.encryptionKey.collectAsState().value,
             onValueChange = { viewModel.encryptionKey.value = it },
             label = {
@@ -57,14 +61,27 @@ class NewUserScreen {
     }
 
     @Composable
+    private fun ReEnterEncryptionTextField() {
+        CyberTextField(
+            modifier = Modifier
+                .fillMaxWidth(),
+            value = viewModel.reEnteredEncryptionKey.collectAsState().value,
+            onValueChange = { viewModel.reEnteredEncryptionKey.value = it },
+            label = {
+                Text(
+                    text = "Re-Enter Encryption Key",
+                    style = TextStyles.monospaceBold
+                )
+            },
+            textStyle = TextStyles.monospaceBold
+        )
+    }
+
+    @Composable
     private fun GenerateButton() {
         Button(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    start = 16.dp,
-                    end = 16.dp
-                ),
+                .fillMaxWidth(),
             onClick = {
                 viewModel.onGenerateClicked()
             },
@@ -81,10 +98,7 @@ class NewUserScreen {
     private fun PinTextField() {
         CyberTextField(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    all = 16.dp
-                ),
+                .fillMaxWidth(),
             value = viewModel.pin.collectAsState().value,
             onValueChange = { viewModel.pin.value = it },
             label = {
@@ -101,11 +115,7 @@ class NewUserScreen {
     private fun DoneButton() {
         Button(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    start = 16.dp,
-                    end = 16.dp
-                ),
+                .fillMaxWidth(),
             onClick = { viewModel.onDoneClicked() },
             content = {
                 Text(
@@ -121,10 +131,7 @@ class NewUserScreen {
     private fun ExplanationText() {
         Text(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    all = 16.dp
-                ),
+                .fillMaxWidth(),
             text = "The encryption key is required when decrypting backup files on a new device, or decrypting your files if you forgot your PIN.  " +
                     "You should write it down and keep it in a safe place"
         )

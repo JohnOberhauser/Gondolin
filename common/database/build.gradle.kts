@@ -5,7 +5,7 @@ plugins {
 }
 
 sqldelight {
-    database("CredentialsDatabase") {
+    database("GondolinDatabase") {
         packageName = "ober.gondolin.common.database"
     }
 }
@@ -15,7 +15,7 @@ kotlin {
 
         commonMain {
             dependencies {
-
+                implementation(Deps.Injection.Kodein.kodein)
             }
         }
 

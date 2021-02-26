@@ -1,0 +1,120 @@
+CREATE TABLE IF NOT EXISTS Credentials (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    path TEXT NOT NULL,
+    name TEXT NOT NULL,
+    website TEXT,
+    username TEXT,
+    password TEXT,
+    notes TEXT
+);
+
+selectAllBasicInfoCredentials:
+SELECT path, name
+FROM Credentials;
+
+selectAllCredentialsInPath:
+SELECT *
+FROM Credentials
+WHERE path = :path;
+
+selectCredentials:
+SELECT *
+FROM Credentials
+WHERE name = :name AND path = :path;
+
+insertCredentials:
+INSERT INTO Credentials
+VALUES ?;
+
+deleteCredentials:
+DELETE FROM Credentials
+WHERE name = :name AND path = :path;
+
+CREATE TABLE IF NOT EXISTS Images (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    path TEXT NOT NULL,
+    name TEXT NOT NULL,
+    thumbnail TEXT NOT NULL,
+    image TEXT
+);
+
+selectAllBasicInfoImage:
+SELECT path, name
+FROM Images;
+
+selectAllImagesInPath:
+SELECT path, name, thumbnail
+FROM Images
+WHERE path = :path;
+
+selectImage:
+SELECT *
+FROM Images
+WHERE name = :name AND path = :path;
+
+insertImage:
+INSERT INTO Images
+VALUES ?;
+
+deleteImage:
+DELETE FROM Images
+WHERE name = :name AND path = :path;
+
+CREATE TABLE IF NOT EXISTS Videos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    path TEXT NOT NULL,
+    name TEXT NOT NULL,
+    thumbnail TEXT NOT NULL,
+    video TEXT
+);
+
+selectAllBasicInfoVideo:
+SELECT path, name
+FROM Videos;
+
+selectAllVideosInPath:
+SELECT path, name, thumbnail
+FROM Videos
+WHERE path = :path;
+
+selectVideo:
+SELECT *
+FROM Videos
+WHERE name = :name AND path = :path;
+
+insertVideo:
+INSERT INTO Videos
+VALUES ?;
+
+deleteVideo:
+DELETE FROM Videos
+WHERE name = :name AND path = :path;
+
+CREATE TABLE IF NOT EXISTS Files (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    path TEXT NOT NULL,
+    name TEXT NOT NULL,
+    data TEXT
+);
+
+selectAllBasicInfoFile:
+SELECT path, name
+FROM Files;
+
+selectAllFilesInPath:
+SELECT path, name
+FROM Files
+WHERE path = :path;
+
+selectFile:
+SELECT *
+FROM Files
+WHERE name = :name AND path = :path;
+
+insertFile:
+INSERT INTO Files
+VALUES ?;
+
+deleteFile:
+DELETE FROM Files
+WHERE name = :name AND path = :path;

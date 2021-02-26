@@ -6,12 +6,12 @@ import org.sqlite.mc.SQLiteMCSqlCipherConfig
 import java.io.File
 
 actual fun getCredentialsDriver(key: String): SqlDriver {
-    val databasePath = File(System.getProperty("java.io.tmpdir"), "CredentialsDatabase.db")
+    val databasePath = File(System.getProperty("java.io.tmpdir"), "GondolinDatabase.db")
     val driver = JdbcSqliteDriver(
         url = "jdbc:sqlite:${databasePath.absolutePath}",
         properties = SQLiteMCSqlCipherConfig().withKey(key).toProperties()
     )
-    CredentialsDatabase.Schema.create(driver)
+    GondolinDatabase.Schema.create(driver)
 
     return driver
 }

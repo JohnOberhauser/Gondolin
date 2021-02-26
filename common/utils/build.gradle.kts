@@ -7,6 +7,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":common:database"))
                 implementation(Deps.RusshWolf.settings)
                 implementation(Deps.RusshWolf.settingsNoArg)
                 implementation(Deps.Injection.Kodein.kodein)

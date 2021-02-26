@@ -5,6 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.ui.graphics.toArgb
 import ober.gondolin.common.ui.screens.Root
 import ober.gondolin.common.ui.theme.ComposeAppTheme
 import ober.gondolin.common.ui.screens.start.SplashScreen
@@ -15,9 +16,8 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             ComposeAppTheme {
-                Surface(color = MaterialTheme.colors.background) {
-                    Root().Create()
-                }
+                window.statusBarColor = MaterialTheme.colors.primary.toArgb()
+                Root().Create()
             }
         }
     }

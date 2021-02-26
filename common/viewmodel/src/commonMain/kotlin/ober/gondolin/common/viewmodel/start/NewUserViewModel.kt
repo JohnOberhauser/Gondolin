@@ -6,7 +6,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
-import ober.gondolin.common.navigation.Screen
+import ober.gondolin.common.navigation.NavigationModule
+import ober.gondolin.common.navigation.Navigator
+import ober.gondolin.common.navigation.TopLevelScreen
 import ober.gondolin.common.utils.UtilsModule
 import ober.gondolin.common.utils.encryption.KeyManager
 import ober.gondolin.common.utils.encryption.RandomGenerator
@@ -18,15 +20,17 @@ class NewUserViewModel(
     viewModelScope: CoroutineScope
 ): BaseViewModel() {
 
+    private val navigator: Navigator<TopLevelScreen> by NavigationModule.di.instance()
     private val simpleStorage: SimpleStorage by UtilsModule.di.instance()
 
     val encryptionKey = MutableStateFlow("")
+    val reEnteredEncryptionKey = MutableStateFlow("")
     val pin = MutableStateFlow("")
 
     private val _doneButtonEnabled = MutableStateFlow(false).apply {
         viewModelScope.launch {
-            encryptionKey.combine(pin) { key, pin ->
-                key.isNotBlank() && pin.isNotBlank()
+            combine(encryptionKey, reEnteredEncryptionKey, pin) { key, key2, pin ->
+                key.isNotBlank() && pin.isNotBlank() && key == key2
             }.collect {
                 value = it
             }
@@ -41,7 +45,7 @@ class NewUserViewModel(
     fun onDoneClicked() {
         simpleStorage.saveEncryptionKey(encryptionKey = encryptionKey.value, pin = pin.value)
         KeyManager.key = encryptionKey.value
-        navigator.navigate(Screen.NewUser.ToCategoriesScreen)
+        navigator.navigate(TopLevelScreen.NewUser.ToCategoriesScreen)
     }
 
     companion object {

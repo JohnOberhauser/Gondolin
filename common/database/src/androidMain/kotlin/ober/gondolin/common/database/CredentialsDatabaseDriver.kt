@@ -7,8 +7,8 @@ import net.sqlcipher.database.SupportFactory
 
 actual fun getCredentialsDriver(key: String): SqlDriver =
     AndroidSqliteDriver(
-        schema = CredentialsDatabase.Schema,
+        schema = GondolinDatabase.Schema,
         context = DatabaseApplicationContext.application!!,
-        name = "CredentialsDatabase.db",
+        name = "GondolinDatabase.db",
         factory = SupportFactory(SQLiteDatabase.getBytes(key.toCharArray()))
     )

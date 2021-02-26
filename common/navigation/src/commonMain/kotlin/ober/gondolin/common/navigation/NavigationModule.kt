@@ -6,7 +6,12 @@ import org.kodein.di.singleton
 
 object NavigationModule {
     private val module = DI.Module("NavigationModule") {
-        bind<Navigator>() with singleton { Navigator(Screen.Splash) }
+        bind<Navigator<TopLevelScreen>>() with singleton {
+            Navigator(TopLevelScreen.Splash)
+        }
+        bind<Navigator<MainLevelScreen>>() with singleton {
+            Navigator(MainLevelScreen.CategoriesScreen)
+        }
     }
 
     val di = DI {
