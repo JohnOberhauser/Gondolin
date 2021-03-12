@@ -19,27 +19,27 @@ class FileManager(key: String) {
 //        }
 //    }
 
-    fun getAllFiles(): List<File> {
-        val credentials = database.gondolinDatabaseQueries.selectAllBasicInfoCredentials().executeAsList()
-        val images = database.gondolinDatabaseQueries.selectAllBasicInfoImage().executeAsList()
-        val videos = database.gondolinDatabaseQueries.selectAllBasicInfoVideo().executeAsList()
-        val files = database.gondolinDatabaseQueries.selectAllBasicInfoFile().executeAsList()
-
-        val allFiles = mutableListOf<File>()
-        credentials.forEach {
-            allFiles.add(File(name = it.name, path = it.path))
-        }
-        images.forEach {
-            allFiles.add(File(name = it.name, path = it.path))
-        }
-        videos.forEach {
-            allFiles.add(File(name = it.name, path = it.path))
-        }
-        files.forEach {
-            allFiles.add(File(name = it.name, path = it.path))
-        }
-        return allFiles
-    }
+//    fun getAllFiles(): List<File> {
+//        val credentials = database.gondolinDatabaseQueries.selectAllBasicInfoCredentials().executeAsList()
+//        val images = database.gondolinDatabaseQueries.selectAllBasicInfoImage().executeAsList()
+//        val videos = database.gondolinDatabaseQueries.selectAllBasicInfoVideo().executeAsList()
+//        val files = database.gondolinDatabaseQueries.selectAllBasicInfoFile().executeAsList()
+//
+//        val allFiles = mutableListOf<File>()
+//        credentials.forEach {
+//            allFiles.add(File(name = it.name, path = it.path))
+//        }
+//        images.forEach {
+//            allFiles.add(File(name = it.name, path = it.path))
+//        }
+//        videos.forEach {
+//            allFiles.add(File(name = it.name, path = it.path))
+//        }
+//        files.forEach {
+//            allFiles.add(File(name = it.name, path = it.path))
+//        }
+//        return allFiles
+//    }
 
 //    fun createNewIndex(): Index {
 //

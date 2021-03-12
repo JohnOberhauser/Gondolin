@@ -1,8 +1,6 @@
 include(
     ":common:utils",
     ":common:database",
-    ":common:main",
-    ":common:edit",
     ":common:navigation",
     ":common:compose-ui",
     ":common:viewmodel",
