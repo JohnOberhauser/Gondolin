@@ -27,7 +27,7 @@ fun main() {
         Surface(modifier = Modifier.fillMaxSize()) {
             ComposeAppTheme {
                 DesktopTheme {
-                    Root()
+                    Root().Create()
                 }
             }
         }
