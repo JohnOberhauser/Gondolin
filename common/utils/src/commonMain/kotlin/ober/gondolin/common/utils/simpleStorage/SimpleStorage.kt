@@ -4,8 +4,8 @@ import com.russhwolf.settings.Settings
 import ober.gondolin.common.utils.encryption.*
 
 interface SimpleStorage {
-    fun saveString(string: String, encryptionKey: String, key: Key)
-    fun getString(encryptionKey: String, key: Key): String
+    fun saveString(string: String, encryptionKey: String, settingsKey: Key)
+    fun getString(encryptionKey: String, settingsKey: Key): String
     fun doesValueExist(key: Key): Boolean
 
     enum class Key(val value: String) {
@@ -18,20 +18,15 @@ class RushSimpleStorage: SimpleStorage {
 
     private val settings: Settings = Settings()
 
-    override fun saveString(string: String, encryptionKey: String, key: SimpleStorage.Key) {
-        val salt = RandomGenerator.generateSalt()
-        Encryption.setEncryptionOptions(key = encryptionKey, salt = salt)
-        settings.putString(key.value, Encryption.encrypt(string))
-        settings.putString(key.value + SALT, salt)
+    override fun saveString(string: String, encryptionKey: String, settingsKey: SimpleStorage.Key) {
+        settings.putString(settingsKey.value, Encryption.encrypt(string, encryptionKey))
     }
 
-    override fun getString(encryptionKey: String, key: SimpleStorage.Key): String {
-        val value = settings.getString(key.value)
-        val salt = settings.getString(key.value + SALT)
-        if (value.isNotBlank() && salt.isNotBlank()) {
-            Encryption.setEncryptionOptions(key = encryptionKey, salt = salt)
+    override fun getString(encryptionKey: String, settingsKey: SimpleStorage.Key): String {
+        val value = settings.getString(settingsKey.value)
+        if (value.isNotBlank()) {
             return try {
-                Encryption.decrypt(value)
+                Encryption.decrypt(value, encryptionKey)
             } catch (e: Exception) {
                 ""
             }
@@ -41,11 +36,6 @@ class RushSimpleStorage: SimpleStorage {
 
     override fun doesValueExist(key: SimpleStorage.Key): Boolean {
         val value = settings.getString(key.value)
-        val salt = settings.getString(key.value + SALT)
-        return value.isNotBlank() && salt.isNotBlank()
-    }
-
-    companion object {
-        private const val SALT = "_salt"
+        return value.isNotBlank()
     }
 }

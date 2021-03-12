@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="java-encryption-desktop">
+    <output-path>$PROJECT_DIR$/common/java-encryption/build/libs</output-path>
+    <root id="archive" name="java-encryption-desktop.jar" />
+  </artifact>
+</component>

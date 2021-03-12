@@ -1,6 +1,7 @@
 plugins {
     id("multiplatform-setup")
     id("android-setup")
+    kotlin("plugin.serialization") version Deps.JetBrains.Kotlin.VERSION
 }
 
 kotlin {
@@ -11,18 +12,7 @@ kotlin {
                 implementation(Deps.RusshWolf.settings)
                 implementation(Deps.RusshWolf.settingsNoArg)
                 implementation(Deps.Injection.Kodein.kodein)
-            }
-        }
-
-        androidMain {
-            dependencies {
-                implementation(Deps.Encryption.Simboise.encryption)
-            }
-        }
-
-        desktopMain {
-            dependencies {
-                implementation(Deps.Encryption.Simboise.encryption)
+                implementation(Deps.JetBrains.Kotlin.serialization)
             }
         }
     }

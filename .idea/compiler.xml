@@ -14,6 +14,10 @@
       <module name="Gondolin.common.edit.commonTest" target="1.8" />
       <module name="Gondolin.common.edit.desktopMain" target="1.8" />
       <module name="Gondolin.common.edit.desktopTest" target="1.8" />
+      <module name="Gondolin.common.java-encryption.commonMain" target="1.8" />
+      <module name="Gondolin.common.java-encryption.commonTest" target="1.8" />
+      <module name="Gondolin.common.java-encryption.desktopMain" target="1.8" />
+      <module name="Gondolin.common.java-encryption.desktopTest" target="1.8" />
       <module name="Gondolin.common.main.commonMain" target="1.8" />
       <module name="Gondolin.common.main.commonTest" target="1.8" />
       <module name="Gondolin.common.main.desktopMain" target="1.8" />

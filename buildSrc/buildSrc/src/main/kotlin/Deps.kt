@@ -90,9 +90,6 @@ object Deps {
             const val sqlCipher = "net.zetetic:android-database-sqlcipher:4.4.2"
             const val sqlCipherJvm = "io.github.willena:sqlite-jdbc:3.33.0.1"
         }
-        object Simboise {
-            const val encryption = "com.github.simbiose:Encryption:2.0.1"
-        }
     }
 
     object Injection {

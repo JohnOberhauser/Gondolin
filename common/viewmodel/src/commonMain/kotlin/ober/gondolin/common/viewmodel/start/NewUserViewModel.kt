@@ -42,7 +42,7 @@ class NewUserViewModel: TopLevelScreen.NewUser() {
         simpleStorage.saveString(
             string = encryptionKey.value,
             encryptionKey = pin.value,
-            key = SimpleStorage.Key.ENCRYPTION_KEY
+            settingsKey = SimpleStorage.Key.ENCRYPTION_KEY
         )
         KeyManager.key = encryptionKey.value
         navigator.navigate(ToCategoriesScreen)
