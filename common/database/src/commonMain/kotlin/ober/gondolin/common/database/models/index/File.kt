@@ -4,6 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 open class File(
-    val name: String,
-    val path: String
+    val name: String
 )
