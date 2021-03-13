@@ -4,5 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Index(
-    val rootDirectory: Directory
+    val rootDirectory: Directory = Directory(
+        name = "/"
+    )
 )
