@@ -12,7 +12,7 @@ fun Index.addCommit(operation: Operation) {
             rootDirectory.findFilesDirectory(operation.file)?.files?.remove(operation.file)
         }
         is Operation.AddDirectory -> {
-            operation.toDirectory.files.firstOrNull { it.name == operation.directory.name }?.let {
+            operation.toDirectory.directories.firstOrNull { it.name == operation.directory.name }?.let {
                 throw DirectoryAlreadyExistsException()
             }
             operation.toDirectory.directories.add(operation.directory)
