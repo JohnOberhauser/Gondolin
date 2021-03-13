@@ -1,5 +1,7 @@
 package ober.gondolin.common.utils.versionControl
 
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import ober.gondolin.common.database.models.index.*
 import kotlin.test.Test
 import kotlin.test.assertTrue
@@ -8,7 +10,6 @@ class IndexBuilderTest {
 
     @Test
     fun testBuildingIndex() {
-        val commits = mutableListOf<Commit>()
         val index = Index()
         val file1 = File.CredentialsFile(name = "file1", username = "some username")
         val file2 = File.VideoFile("file2")
@@ -17,48 +18,34 @@ class IndexBuilderTest {
         val dir2 = Directory("dir2")
         val dir3 = Directory("dir3")
 
-        commits.addAll(
+        index.addCommits(
             listOf(
-                Commit(
-                    operation = Operation.AddFile(
-                        file = file1,
-                        toDirectory = index.rootDirectory
-                    )
+                Operation.AddFile(
+                    file = file1,
+                    toDirectory = index.rootDirectory
                 ),
-                Commit(
-                    operation = Operation.AddDirectory(
-                        directory = dir1,
-                        toDirectory = index.rootDirectory
-                    )
+                Operation.AddDirectory(
+                    directory = dir1,
+                    toDirectory = index.rootDirectory
                 ),
-                Commit(
-                    operation = Operation.AddDirectory(
-                        directory = dir2,
-                        toDirectory = dir1
-                    )
+                Operation.AddDirectory(
+                    directory = dir2,
+                    toDirectory = dir1
                 ),
-                Commit(
-                    operation = Operation.AddDirectory(
-                        directory = dir3,
-                        toDirectory = dir2
-                    )
+                Operation.AddDirectory(
+                    directory = dir3,
+                    toDirectory = dir2
                 ),
-                Commit(
-                    operation = Operation.AddFile(
-                        file = file2,
-                        toDirectory = dir3
-                    )
+                Operation.AddFile(
+                    file = file2,
+                    toDirectory = dir3
                 ),
-                Commit(
-                    operation = Operation.AddFile(
-                        file = file3,
-                        toDirectory = dir3
-                    )
+                Operation.AddFile(
+                    file = file3,
+                    toDirectory = dir3
                 )
             )
         )
-
-        index.addCommits(commits)
 
         assertTrue {
             index.rootDirectory
@@ -77,10 +64,8 @@ class IndexBuilderTest {
         }
 
         index.addCommit(
-            Commit(
-                operation = Operation.DeleteFile(
-                    file = file3
-                )
+            operation = Operation.DeleteFile(
+                file = file3
             )
         )
 

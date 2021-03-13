@@ -1,8 +1,5 @@
 package ober.gondolin.common.database
 
-import ober.gondolin.common.database.models.index.Directory
-import ober.gondolin.common.database.models.index.File
-import ober.gondolin.common.database.models.index.Index
 
 class FileManager(key: String) {
     val database = GondolinDatabase(getCredentialsDriver(key))

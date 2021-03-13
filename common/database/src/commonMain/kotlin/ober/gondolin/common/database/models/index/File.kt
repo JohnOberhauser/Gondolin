@@ -8,7 +8,7 @@ sealed class File {
     abstract val name: String
 
     @Serializable
-    @SerialName("Credentials")
+    //@SerialName("Credentials")
     data class CredentialsFile(
         override val name: String,
         val website: String? = null,
@@ -18,7 +18,7 @@ sealed class File {
     ): File()
 
     @Serializable
-    @SerialName("Image")
+    //@SerialName("Image")
     class ImageFile(
         override val name: String,
         val thumbnail: String? = null,
@@ -26,7 +26,7 @@ sealed class File {
     ): File()
 
     @Serializable
-    @SerialName("Video")
+    //@SerialName("Video")
     class VideoFile(
         override val name: String,
         val thumbnail: String? = null,
@@ -34,7 +34,7 @@ sealed class File {
     ): File()
 
     @Serializable
-    @SerialName("Other")
+    //@SerialName("Other")
     class OtherFile(
         override val name: String,
         val data: String? = null
