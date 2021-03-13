@@ -1,7 +1,5 @@
 package ober.gondolin.common.utils.versionControl
 
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 import ober.gondolin.common.database.models.index.*
 import kotlin.test.Test
 import kotlin.test.assertTrue
