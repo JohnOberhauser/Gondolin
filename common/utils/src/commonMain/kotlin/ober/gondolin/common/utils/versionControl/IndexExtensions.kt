@@ -3,22 +3,21 @@ package ober.gondolin.common.utils.versionControl
 fun Index.addCommit(operation: Operation) {
     when(operation) {
         is Operation.AddFile -> {
-            operation.toDirectory.files.firstOrNull { it.name == operation.file.name }?.let {
+
+            operation.toDirectory.files.firstOrNull { it == operation.file.name }?.let {
                 throw FileAlreadyExistsException()
             }
-            operation.toDirectory.files.add(operation.file)
+            operation.toDirectory.files.add(operation.file.name)
+            operation.file.path = mutableListOf<String>().apply {
+                operation.toDirectory.path?.let { addAll(it) }
+                add(operation.toDirectory.name)
+            }
+            allFiles.add(operation.file)
         }
         is Operation.DeleteFile -> {
-            rootDirectory.findFilesDirectory(operation.file)?.files?.remove(operation.file)
-        }
-        is Operation.AddDirectory -> {
-            operation.toDirectory.directories.firstOrNull { it.name == operation.directory.name }?.let {
-                throw DirectoryAlreadyExistsException()
-            }
-            operation.toDirectory.directories.add(operation.directory)
-        }
-        is Operation.DeleteDirectory -> {
-            rootDirectory.findContainingDirectory(operation.directory)?.directories?.remove(operation.directory)
+            operation.fromDirectory.files.remove(operation.file.name)
+            operation.file.path = null
+            allFiles.remove(operation.file)
         }
     }
 
@@ -38,5 +37,14 @@ fun Index.addCommits(operations: List<Operation>) {
     }
 }
 
+fun Index.merge(otherIndex: Index) {
+    val commitsToApply = otherIndex.commits.filter { commit ->
+        commits.find {
+            it.hash == commit.hash
+        } == null
+    }
+
+
+}
+
 class FileAlreadyExistsException: Exception("A file with this name already exists")
-class DirectoryAlreadyExistsException: Exception("A directory with this name already exists")

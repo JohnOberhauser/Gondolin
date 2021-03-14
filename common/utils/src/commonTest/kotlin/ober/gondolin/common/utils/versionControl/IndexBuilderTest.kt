@@ -12,9 +12,9 @@ class IndexBuilderTest {
         val file1 = File.CredentialsFile(name = "file1", username = "some username")
         val file2 = File.VideoFile("file2")
         val file3 = File.ImageFile("file3")
-        val dir1 = Directory("dir1")
-        val dir2 = Directory("dir2")
-        val dir3 = Directory("dir3")
+        val dir1 = File.Directory("dir1")
+        val dir2 = File.Directory("dir2")
+        val dir3 = File.Directory("dir3")
 
         index.addCommits(
             listOf(
@@ -22,16 +22,16 @@ class IndexBuilderTest {
                     file = file1,
                     toDirectory = index.rootDirectory
                 ),
-                Operation.AddDirectory(
-                    directory = dir1,
+                Operation.AddFile(
+                    file = dir1,
                     toDirectory = index.rootDirectory
                 ),
-                Operation.AddDirectory(
-                    directory = dir2,
+                Operation.AddFile(
+                    file = dir2,
                     toDirectory = dir1
                 ),
-                Operation.AddDirectory(
-                    directory = dir3,
+                Operation.AddFile(
+                    file = dir3,
                     toDirectory = dir2
                 ),
                 Operation.AddFile(
@@ -46,33 +46,38 @@ class IndexBuilderTest {
         )
 
         assertTrue {
-            index.rootDirectory
-                .directories.first()
-                .directories.first()
-                .directories.first()
-                .files.first() == file2
+            index.filesWithPath(dir3.fullPath!!).contains(file2)
         }
 
         assertTrue {
-            index.rootDirectory
-                .directories.first()
-                .directories.first()
-                .directories.first()
-                .files.size == 2
+            dir3.files.size == 2
+        }
+
+        assertTrue {
+            dir3.path == listOf(
+                index.rootDirectory.name,
+                dir1.name,
+                dir2.name
+            )
+        }
+
+        assertTrue {
+            index.allFiles.contains(file3)
         }
 
         index.addCommit(
             operation = Operation.DeleteFile(
-                file = file3
+                file = file3,
+                fromDirectory = dir3
             )
         )
 
         assertTrue {
-            index.rootDirectory
-                .directories.first()
-                .directories.first()
-                .directories.first()
-                .files.size == 1
+            !index.allFiles.contains(file3)
+        }
+
+        assertTrue {
+            dir3.files.size == 1
         }
     }
 }
